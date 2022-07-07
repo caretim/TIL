@@ -1,8 +1,6 @@
 #TIL
 ---
-` Today I Learne`
-
-
+` Today I Learned`
 
 # 목차 
   
