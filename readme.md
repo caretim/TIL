@@ -8,4 +8,4 @@
 
 ### 2.[Git command 정리](https://github.com/caretim/TIL/blob/master/Git/Git_command.md)
 
-### 3.Python 기초문법
+### 3.[Python 기초문법](https://github.com/caretim/TIL/blob/master/python_work_space/Python-basic.md)
