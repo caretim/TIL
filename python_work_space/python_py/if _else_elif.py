@@ -23,13 +23,13 @@
 #     print('i dont/know')
     
 
-# max = 10
+max = 10
 
-# while True:
-#     num = int(input(12))
-#     if num > max:
-#         print(num, 'is too big')
-#         break
+while (True:)
+    num = int(input())
+    if (num > max:)
+        print(num, 'is too big')
+        break
 
 
 
@@ -49,8 +49,8 @@
 #     print('삼')
 
 
-a = int(input())
+# a = int(input())
 
-b = int(input())
+# b = int(input())
 
-print(a + b)
+# print(a + b)
