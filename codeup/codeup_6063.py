@@ -1,5 +1,6 @@
 a,b = input().split()
 a= int(a)
 b= int(b)
+c =(a if (a>=b) else b)
 
-print(bool(not a and not b))
+print(int(c))
