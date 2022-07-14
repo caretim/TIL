@@ -5,10 +5,25 @@
 # * 사각형 넓이 : 가로 * 세로
 # * 사각형 둘레 : (가로 + 세로) * 2
 
+# a,b =map(int,input().split())
+
+# def rectangle (a,b): 
+#     return (a*b),((a+b)*2)
+
+# c = rectangle(a,b)
+
+
+# print(c)
+
+#함수지정할 때 나중에 알아보기 쉽게 표기하기
+
 a,b =map(int,input().split())
 
-def rectangle (a,b):
-    return (a*b),((a+b)*2)
+def rectangle (a, b): 
+    area = a * b
+    per = (a + b) * 2
+    
+    return area,per 
 
 c = rectangle(a,b)
 
