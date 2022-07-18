@@ -58,15 +58,3 @@ print (cnt-1)
 # elif nums/10>0:
 #         cnt = 1
 # print(cnt)
-
-cnt= 1
-num= int(input())
-j = 10
-while j > 0:
-    if num/j > 0:
-        j = 10**cnt
-        cnt+=1
-        if j >=num:
-            break
-print (cnt-1)
-
