@@ -19,15 +19,14 @@
 n = int(input())
 a= []
 count= 0
-while n != 0 : #아직도 while문 조건 달고 멈추게 하는법을 모르겠음.. 
-               # 참이면 멈춘다는데 n== 0: 으로하면 멈추지않는다.
-    a.append(n%10)
-    n= n//10
-    count +=1
-    if n <1:
-        break
+while n != 0 :
+    a.append(n%10) #n을 10으로 나눈 나머지를 a리스트에 넣는다
+    n= n//10       #n은 10으로 나눠준 몫을 순환시킨다.
+    count +=1      #n 카운팅을 통해 숫자의 자리수를 계산해준다
+    # if n <1:
+    #     break
 
-for i in range(count):
+for i in range(count): # 카운팅에 저장된 번호로 리스트 인덱스를 불러온다. 
     print(a[i],end='')
 
 
