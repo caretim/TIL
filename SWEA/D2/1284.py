@@ -31,9 +31,7 @@ for test_case in range(1, T + 1):
 
 
     if w > r:
-
         pluspay = (q) +((w -r)*s) 
-        
         pay.append(pluspay)
 
     elif w <= r:
