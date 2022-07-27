@@ -45,7 +45,8 @@ for test_case in range(1, T + 1):
     # r = n*(count-1)
 
     while len(nlist) != 10: # 입력되는 숫자의 0~9를 겹치지 않게 리스트에 넣어서 총 숫자가 10개가 된다면 멈춤
-        nm = int(n)*count    # n * conut  입력된 숫자에 한번 반복될때마다 +1되는 cnt 를 더 해서 자리수마다 값을 구한후 리스트에 없을경우 플러스
+        nm = int(n)*count    # n * conut  입력된 숫자에 한번 반복될때마다 +1되는 cnt 를 더 해서 자리수마다 값을 구한후 
+                             #리스트에 없을경우 플러스
                             #n의수는 변하지않고 카운트만 변해야한다.
         nm = str(nm)             # len이 int로 정의된 값을 세어주지 않기에 숫자로 형변환 후 카운트를 곱하고 다시 str로 바꾼다.
         for i in range(len(nm)):   # n의 자리수 길이 확인 

@@ -36,4 +36,22 @@ for test_case in range(1, T + 1):
 
     print(f'#{test_case} {cnt_price}')
 
-    #처음부터 새로 짜야할듯.
+    #처음부터 새로 짜야할듯. 리스트 최대값 최소값 만들어서 계산하는 코드짠거
+#     len_num=int(input())
+# n= list (map(int,input().split()))
+
+# high=[]
+# max_h=n[0]
+# min_h=n[0]
+# cnt= n[0]
+# for nums in range(0,len_num) :
+#     if n[nums] >= cnt:
+#         cnt = n[nums]
+#         max_h = n[nums]
+        
+#     elif n[nums]< cnt:
+#         high.append(max_h-min_h)
+#         cnt = n[nums]
+#         min_h = n[nums]
+#         max_h = n[nums]
+# high.append(max_h-min_h)
