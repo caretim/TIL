@@ -19,7 +19,7 @@
 n = int(input())
 a= []
 count= 0
-while n != 0 :
+while n :
     a.append(n%10) #n을 10으로 나눈 나머지를 a리스트에 넣는다
     n= n//10       #n은 10으로 나눠준 몫을 순환시킨다.
     count +=1      #n 카운팅을 통해 숫자의 자리수를 계산해준다
