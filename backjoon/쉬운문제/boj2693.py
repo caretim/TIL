@@ -8,5 +8,4 @@ n=int(sys.stdin.readline().rstrip())
 for __ in range(n):
     nums =list(map(int,sys.stdin.readline().split()))
     nums.sort()
-    print(nums)
     print(nums[7])

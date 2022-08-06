@@ -20,10 +20,8 @@ chess = deque(chess)
 dong =list(map(int,input().split()))
 
 dong = deque(dong)
-print(chess)
-print(dong)
+
 for result in range(len(dong)):
     c = chess.popleft()
     d = dong.popleft()
-
     print(c - d,end=' ')
