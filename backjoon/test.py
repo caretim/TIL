@@ -1,8 +1,16 @@
+from collections import Counter
+import sys
 
-a = [1,2]
+# sys.stdin = open('input.txt')
+words = input()
+words = words.replace('\n', '').replace(' ', '')
 
-if 3 in a:
-    a.remove(3)
+alpha_list = Counter(words)
+keys = []
+max_often = max(alpha_list.values())
+for key,value in alpha_list.items():
+    if value == max_often:
+        keys.append(key)
 
-
-print(a)
+keys.sort()
+print(*keys,sep='')

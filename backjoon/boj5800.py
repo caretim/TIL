@@ -18,7 +18,13 @@ sc= [list(map(int,input().split())) for __ in range(n)]
 
 
 
-for j in range(0,n):
-    print(f'Class {j}')
-    sc[j].sort()
-    print(f'Max {max(sc[j])}, Min {(sc[j][1])}, Largest Gap {sc[j][2]-sc[j][1]}')
+
+for j in range(n):
+    sq=sc[j].pop(0)
+    sc[j].sort(reverse=True)
+    gap =[] 
+    for k in range(0,sq-1):
+        gap.append(sc[j][k]- sc[j][k+1])
+
+    print(f'Class {j+1}')
+    print(f'Max {max(sc[j])}, Min {min(sc[j])}, Largest gap {max(gap)}')
