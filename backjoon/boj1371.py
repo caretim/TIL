@@ -12,10 +12,7 @@
 import sys
 sen =sys.stdin.read().replace('\n','')
 
-
 ch ={}
-
-
 
 for char in sen:
     if char == ' ': 
@@ -36,7 +33,7 @@ for i in ch:
 maxl.sort()
 
 print(*maxl,sep='')
-print
+
 
 # import sys
 
