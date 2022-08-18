@@ -1,5 +1,5 @@
 
-import sys
+
 # n= sys.stdin.readline().rstrip()
 
 # heapq.heapify(nlist)
@@ -9,7 +9,7 @@ import sys
 
 
 # print(heapq.heappop(nlist))
-
+import sys
 
 nls= [0]*10001
 n= int(sys.stdin.readline().rstrip())
