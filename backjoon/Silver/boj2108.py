@@ -25,7 +25,7 @@ nc = int((n-1)/2)
 
 
 
-ndm = max(nd,key=nd.get)
+ndm = max(nd.values())
 nmode =[]
 for k in nd:
     if nd.get(k) == ndm:
@@ -42,10 +42,11 @@ print(nl[nc])
 
 
 #최빈값
+
 if len(nmode)>1:
     print(nmode[1])
 else:
-    print(ndm)
+    print(nmode[0])
 
 
 
@@ -54,7 +55,8 @@ if len(nl)>1:
     m= nl[0]-nl[n-1]
     print(abs(m))
 else:
-    print(nl[0])
+    print(0)
 
+# print(max(nl)-min(nl))
 
 
