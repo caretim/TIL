@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+
+
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  min-width: 1280px;
+  color: #333333;
+}
+.card{
+  width: 1920px;
+  /* display: flex;
+  flex-direction:column; */
+}
+/* 네비게이터 */
+.at{
+  text-decoration: none;
+  padding: 2px;
+  font-size: 12px;
+}
+
+.nav{
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  min-width: 1280px;
+  height: 40px;
+}
+.nav-list{
+  display: flex;
+
+}
+/* 배너 */
+
+.banner{
+
+  height: 700px;
+  width: 1920px;
+  background-image: url(/assets/apparel.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+
+
+.본문{
+  
+  width: 1280px;
+  /* background-size: cover;
+  background: fixed;
+  background-color: white;
+   */
+}
+
+.본문이미지{
+  width: 500px;
+}

@@ -1,0 +1,69 @@
+/* 아래에 CSS를 작성해주세요. */
+*::after {
+    box-sizing: border-box;
+  }
+.card {
+    width: 900px;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.card-in1 {
+    /* float: left; */
+    width: 300px;
+    
+}
+
+.card-in2 {
+    width: 300px;
+    /* display: inline-block; */    
+    margin-right: 250px;
+    margin-left:10px;}
+
+
+.card-image {
+    width: 300px;
+    border-radius: 1rem;
+}
+.image-t{
+    margin: 0 auto;
+
+    
+}
+
+.about
+{ font-size : 15px;
+    display: block;
+}
+.h2{
+    text-align: center;
+}
+
+
+.INSTALLATION{
+    font-size: 11px;
+    line-height:60%
+    
+  }
+
+.subtitle{
+    font-size: 15px;
+    font-weight:1000;
+    line-height:70%
+}
+.explan{
+    font-size: 11px;
+    color: grey;
+    line-height: 18px;
+    
+}
+
+.textbox{
+    position : relative;
+    left :13px;
+   
+    
+}
+/* * 카드들의 전체 영역의 너비는 900px입니다.
+
+* 개별 카드 아이템(이미지 및 텍스트)의 너비는 300px입니다. */

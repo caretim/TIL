@@ -1,0 +1,32 @@
+
+
+body{
+    height: 10000px;
+    background-color: bisque;}
+.nav-list{
+    display: flex;
+    list-style: none;
+    padding : 0;
+    margin: 0;
+    
+}
+.at{
+    text-decoration:none;
+}
+.at:hover{
+    color: rgb(243, 12, 51);
+    background-color: black;
+    border-radius: 2rem;
+
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+.nav-item{
+    margin:0 10px;
+}

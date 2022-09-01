@@ -1,0 +1,65 @@
+/* 아래에 CSS를 작성해주세요. */
+
+*::after {
+    box-sizing: border-box;
+  }
+
+
+.card{
+    width:300px;
+    position:flex;
+    justify-content: center;
+}
+
+.textbox{
+    margin-left: 10px;
+    
+    
+}
+.blueming{
+    font-size: 6px;
+    color: rgb(78, 77, 77);
+    line-height: 50%;
+    font-weight: 500;
+    letter-spacing:  -1px;
+    
+
+}
+.pr {margin :0px;
+    
+}
+.h2{
+    font-size: 11px;
+    font-weight:500;
+    line-height: 0.5;
+    letter-spacing: -0.5px;
+    margin-bottom:5px;
+}
+
+.images{
+    width: 270px;
+    border-radius:5px;
+}
+
+
+.per{
+    font-size:  18px;
+    color: rgb(45, 203, 243);
+    font-weight: bold;
+
+}
+.price{
+    font-size:  18px;
+    font-weight: bold;
+
+
+}
+.score{
+    font-size: 13px;
+    font-weight : bold;}
+
+.review{
+    font-size: 12px;
+    color: gray;
+    font-weight : bold;
+}
