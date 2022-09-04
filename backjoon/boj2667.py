@@ -2,10 +2,10 @@ n=int(input())
 
 matrix=[list(map(int,input())) for __ in range(n)]
 
-dy=[0,0,-1,-1]
+dy=[0,0,-1,1]
 dx=[-1,1,0,0]
 
-
+ 
 def bundle(y,x):
     cnt=1
     matrix[y][x]=0
@@ -33,6 +33,9 @@ for y in range(n):
         if matrix[y][x]==1:
             re = bundle(y,x)
             result.append(re)
-            print(matrix)
 
-print(result)
+result.sort()
+
+print(len(result))
+for r in result:
+    print(r)
