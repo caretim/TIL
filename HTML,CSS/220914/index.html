@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+      p{
+        font-family: 'Jua', sans-serif;
+      }
+      
+    </style>
+  </head>
+  <body style="background-color: rgb(188, 213, 214);">
+    
+    <!--네브바-->
+    <nav class="navbar-dark navbar-expand-lg bg-dark " style="height: 4rem;">
+      <div class="container-fluid d-flex">
+        <a class="navbar-brand" href="#"
+          ><img src="images/파비콘.png" alt="Bootstrap" width="80" height="60"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between " id="navbarNavAltMarkup">
+          <div class="navbar-nav d-flex">
+            <a
+              class="nav-link active  text-white mx-3"
+              aria-current="page"
+              href="index.html"
+              >Home</a
+            >
+            <li class="nav-item">
+              <a class="nav-link" href="03_comunity.html"
+                >Comunity</a>
+              </li>
+
+            <!--login-->
+            <a
+            class="nav-link  px-0 mx-3 " style="cursor:pointer;"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+           
+            >
+            Login
+            </a>
+
+            
+
+            <li  class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Genres
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Drama</a></li>
+                <li><a class="dropdown-item" href="#">Comedy</a></li>
+              </ul>
+            </li>
+
+
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Modal title
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label"
+                          >Email address</label
+                        >
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="exampleInputEmail1"
+                          aria-describedby="emailHelp"
+                        />
+                        <div id="emailHelp" class="form-text">
+                          We'll never share your email with anyone else.
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label"
+                          >Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="exampleInputPassword1"
+                        />
+                      </div>
+                      <div class="mb-3 form-check">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          id="exampleCheck1"
+                        />
+                        <label class="form-check-label" for="exampleCheck1"
+                          >Check me out</label
+                        >
+                      </div>
+                    </form>
+                  </div>
+                  <div
+                    class="bg-light p-3 border border-opacity-75 rounded d-flex justify-content-end"
+                  >
+                    <button
+                      type="submit"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      close
+                    </button>
+                    <button type="submit" class="ms-2 btn btn-primary">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <form class="d-flex"   role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button type="submit" class="btn btn-outline-secondary">Search</button>
+            </div>
+        </div>
+      </div>
+    </nav>
+    <!--배너-->
+    <div>
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href=""><img
+              src="images/탑건매버릭.PNG"
+              class="d-block w-100"
+              alt="..."
+            /></a>
+          </div>
+          <div class="carousel-item">
+            <a href=""><img
+              src="images/공조2.png"
+              class="d-block w-100"
+              alt="..."
+            /></a>
+          </div>
+          <div class="carousel-item">
+            <a href=""><img
+              src="images/라이프오브파이.png"
+              class="d-block w-100"
+              alt="..."
+            /></a>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <!--foster-->
+    <div class="container">
+      <h2 class="text-center mt-5 fw-bold">Moives</h2>
+      <div class="row row-cols-xs-1 row-cols-sm-2 row-cols-md-3 g-4 mt-4">
+        <div class="col">
+          <div class="card">
+            <a href="movie_쇼생크탈출.html"><img src="images/movie1.jpg" class="card-img-top" alt="movie1" /></a>
+            <div class="card-body">
+              <h5 class="card-title text-center  fw-bold">쇼생크 탈출</h5>
+              <p class="card-text">
+                촉망 받던 은행 부지점장 ‘앤디(팀 로빈슨 分)’는 아내와 그 애인을 살해한 혐의로 종신형을 받고 쇼생크 교도소에 수감된다. 강력범들이 수감된 이곳에서 재소자들은 짐승 취급 당하고, 혹여 간수 눈에 잘못 보였다가는 개죽음 당하기 십상이다. 처음엔 적응 못하던 ‘앤디’는 교도소 내 모든 물건을 구해주는 ‘레드(모건 프리먼 分)’와 친해지며 교도소 생활에 적응하려 하지만, 악질 재소자에게 걸려 강간까지 당한다.
+                그러던 어느 날, 간수장의 세금 면제를 도와주며 간수들의 비공식 회계사로 일하게 되고, 마침내는 소장의 검은 돈까지 관리해주게 된다. 덕분에 교도소 내 도서관을 열 수 있게 되었을 무렵, 신참내기 ‘토미(길 벨로우스 分)’로부터 ‘앤디’의 무죄를 입증할 기회를 얻지만, 노튼 소장은 ‘앤디’를 독방에 가두고 ‘토미’를 무참히 죽여버리는데...
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <a href="movie_죽은시인의사회.html"><img src="images/movie2.jpg" class="card-img-top" alt="movie2" /></a>
+            <div class="card-body">
+              <h5 class="card-title text-center fw-bold">죽은 시인의 사회</h5>
+              <p class="card-text">
+                “오 캡틴, 나의 캡틴”  
+
+                미국 입시 명문고 웰튼 아카데미, 
+                공부가 인생의 전부인 학생들이 
+                아이비리그로 가기 위해 고군분투하는 곳. 
+                
+                새로 부임한 영어 교사 ‘키팅’은
+                자신을 선생님이 아닌 “오, 캡틴, 나의 캡틴”이라 불러도 좋다고 말하며
+                독특한 수업 방식으로 학생들에게 충격을 안겨 준다.
+
+                점차 그를 따르게 된 학생들은
+                공부보다 중요한 인생의 의미를 하나씩 알아가고
+                새로운 도전을 시작한다. 
+
+                하지만 이를 위기로 여긴 다른 어른들은
+                이들의 용기 있는 도전을 시간 낭비와 반항으로 단정 지으며
+                그 책임을 ‘키팅’ 선생님에게 전가하는데...
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <a href="movie_다크나이트라이즈.html"><img src="images/movie3.jpg" class="card-img-top" alt="movie3" /></a>
+            <div class="card-body">
+              <h5 class="card-title text-center fw-bold">다크나이트 라이즈</h5>
+              <p class="card-text">
+                `배트맨` vs `베인`, 운명을 건 최후의 전투
+                다크 나이트 신화의 전설이 끝난다
+                
+                “진실만으론 세상을 못 바꾸니까 진정한 영웅을 기다려온 세상을 실망시켜선 안돼”
+                배트맨이 조커와의 대결을 끝으로 세상에서 모습을 감춘 8년 후..
+                하비 덴트의 죽음에 대한 책임을 떠안은 배트맨은 그와 고든 경찰청장이 희망했던 보다 큰 선을 위해 모든 것을 희생했다.
+                한편 고담시의 범죄는 범죄방지 덴트법으로 인해 한동안 억제되는 듯했다.
+                하지만 평화가 지속되던 고담시의 파멸을 예고하며 등장한 마스크를 쓴 잔인한 악당 베인으로 인해 모든 것이 변한다.
+                그는 브루스 웨인이 스스로 택한 유폐 생활에 종지부를 찍게 한다.
+                하지만 다시 돌아온 배트맨에게 베인은 그리 만만한 상대가 아니다.
+                자신을 거부한 사람들의 고통을 지켜볼 것인가, 정의의 수호자로 나설 것인가.
+                배트맨은 승패를 알 수 없는 마지막 전투를 시작하려 하는데…
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <a href=""><img src="images/movie4.jpg" class="card-img-top" alt="movie4" /></a>
+            <div class="card-body">
+              <h5 class="card-title text-center fw-bold">그랜드 부다페스트 호텔</h5>
+              <p class="card-text">
+                세계 최고 부호 마담 D.의 피살사건!
+                전 세계를 매료시킨 황홀한 이야기가 다시 시작된다!
+                
+                1927년 세계대전이 한창이던 어느 날, 세계 최고의 부호 마담 D.가 의문의 살인을 당한다. 유력한 용의자로 지목된 사람은 바로 전설적인 호텔 지배인이자 그녀의 연인 ‘구스타브’!
+                구스타브는 누명을 벗기 위해 충실한 로비보이 ‘제로’에게 도움을 청하고, 그 사이 구스타브에게 남겨진 마담 D.의 유산을 노리던 그녀의 아들 ‘드미트리’는 무자비한 킬러를 고용해 [그랜드 부다페스트 호텔]을 찾게 되는데…
+                
+                문을 여는 순간 완벽히 빠져드는 기상천외 판타지아트!
+                단 100분 간의 환상의 세계로 당신을 초대합니다!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <a href=""><img src="images/movie5.jpg" class="card-img-top" alt="movie5" /></a>
+            <div class="card-body">
+              <h5 class="card-title text-center fw-bold">her</h5>
+              <p class="card-text">
+                사랑과 관계에 서툰 모두를 위한 감성 로맨스
+                우리에게 사랑하는 법을 알려준, 그녀를 다시 만난다
+
+                다른 사람의 편지를 써주는 대필 작가로 일하고 있는 ‘테오도르’는 타인의 마음을 전해주는 일을 하고 있지만 정작 자신은 아내와 별거 중인 채 외롭고 공허한 삶을 살아가고 있다.
+
+                어느 날, 스스로 생각하고 느끼는 인공지능 운영체제 ‘사만다’를 만나게 되고, 자신의 말에 귀를 기울이며 이해해주는 ‘사만다’로 인해 조금씩 상처를 회복하고 행복을 되찾기 시작한 ‘테오도르’는 어느새 점점 그녀에게 사랑의 감정을 느끼게 되는데...
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <a href=""><img src="images/movie6.jpg" class="card-img-top" alt="movie6" /></a>
+            <div class="card-body">
+              <h5 class="card-title text-center fw-bold">위대한 쇼맨</h5>
+              <p class="card-text">
+                불가능한 꿈, 그 이상의 쇼!
+
+                쇼 비즈니스의 창시자이자, 꿈의 무대로 전세계를 매료시킨 남자 ‘바넘’의 이야기에서 영감을 받아 탄생한 오리지널 뮤지컬 영화 <위대한 쇼맨>. <레미제라블> 이후 다시 뮤지컬 영화로 돌아온 휴 잭맨부터 잭 에프론, 미셸 윌리엄스, 레베카 퍼거슨, 젠다야까지 할리우드 최고의 배우들이 합류해 환상적인 앙상블을 선보인다. 여기에 <미녀와 야수> 제작진과 <라라랜드> 작사팀의 합류로 더욱 풍성해진 비주얼과 스토리, 음악까지 선보일 <위대한 쇼맨>은 ‘우리는 누구나 특별하다’는 메시지로 관객들에게 재미는 물론, 감동까지 선사할 것이다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="text-center p-5">
+      web-bootstrap. PJT by 김태형, 하승찬
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

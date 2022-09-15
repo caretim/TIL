@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movie</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"
+            ><img src="images/logo.png" alt="Bootstrap" width="80" height="60"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a
+                class="nav-link active text-white opacity-25"
+                aria-current="page"
+                href="02_index.html"
+                >Home</a
+              >
+              <a class="nav-link text-white opacity-25" href="03_community.html"
+                >Comunity</a
+              >
+              <a
+                class="nav-link active text-white"
+                aria-current="page"
+                href="04_form.html"
+                >review</a
+              >
+              <!--login-->
+              <button
+                class="btn btn-dark opacity-25 px-0"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                style="width: 0"
+              >
+                Login
+              </button>
+  
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Modal title
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label"
+                            >Email address</label
+                          >
+                          <input
+                            type="email"
+                            class="form-control"
+                            id="exampleInputEmail1"
+                            aria-describedby="emailHelp"
+                          />
+                          <div id="emailHelp" class="form-text">
+                            We'll never share your email with anyone else.
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label"
+                            >Password</label
+                          >
+                          <input
+                            type="password"
+                            class="form-control"
+                            id="exampleInputPassword1"
+                          />
+                        </div>
+                        <div class="mb-3 form-check">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="exampleCheck1"
+                          />
+                          <label class="form-check-label" for="exampleCheck1"
+                            >Check me out</label
+                          >
+                        </div>
+                      </form>
+                    </div>
+                    <div
+                      class="bg-light p-3 border border-opacity-75 rounded d-flex justify-content-end"
+                    >
+                      <button
+                        type="submit"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        close
+                      </button>
+                      <button type="submit" class="ms-2 btn btn-primary">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+  <div class="container d-flex justify-content-between mt-3">
+    <div >
+      <h1 class="">쇼생크 탈출</h1>
+      <p style="font-size: 1rem; color: gray;">The shawshank Redemption, 1994</p>
+      <p><span class="fw-bold">개요</span> 드라마 | 미국 | 142분 </p>
+      <p><span class="fw-bold">감독</span> 프랑크 다라본트</p>
+      <p><span class="fw-bold">출연</span> 팀 로빈슨(앤디듀프레인) | 모건(앨리스 보이드 레드 레딩)</p>
+      <p><span class="fw-bold">등급</span> [국내] 15세 관람가</p>
+
+    </div>
+
+    <div>
+      <img style="height: 600px;" src="images/movie1.jpg" alt="쇼생크스 탈출">
+    </div>
+  </div>
+
+  <div class="container">
+    <h4>줄거리<br><hr> </h4>
+    <p> 두려움은 너를 죄수로 가두고, 희망은 너를 자유롭게 하리라 촉망 받던 은행 부지점장 ‘앤디(팀 로빈슨 分)’는 아내와 그 애인을 살해한 혐의로 종신형을 받고 쇼생크 교도소에 수감된다. 강력범들이 수감된 이곳에서 재소자들은 짐승 취급 당하고, 혹여 간수 눈에 잘못 보였다가는 개죽음 당하기 십상이다. 처음엔 적응 못하던 ‘앤디’는 교도소 내 모든 물건을 구해주는 ‘레드(모건 프리먼 分)’와 친해지며 교도소 생활에 적응하려 하지만, 악질 재소자에게 걸려 강간까지 당한다. 그러던 어느 날, 간수장의 세금 면제를 도와주며 간수들의 비공식 회계사로 일하게 되고, 마침내는 소장의 검은 돈까지 관리해주게 된다. 덕분에 교도소 내 도서관을 열 수 있게 되었을 무렵, 신참내기 ‘토미(길 벨로우스 分)’로부터 ‘앤디’의 무죄를 입증할 기회를 얻지만, 노튼 소장은 ‘앤디’를 독방에 가두고 ‘토미’를 무참히 죽여버리는데...</p>
+  </div>
+
+  <div class="container">
+    <h4>동영상<br><hr> </h4>
+    <div class="d-flex justify-content-between">
+      <div class="ratio ratio-16x9" style="width: 320px; height: 180px;">
+        <iframe  src="https://www.youtube.com/embed/bAWvR2ulCJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div> 
+
+      <div class="ratio ratio-16x9" style="width: 320px; height: 180px;">
+        <iframe  src="https://www.youtube.com/embed/Do0slRSdnVM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div> 
+
+      <div class="ratio ratio-16x9" style="width: 320px; height: 180px;">
+        <iframe  src="https://www.youtube.com/embed/8ecTKUtmsiI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div> 
+    </div>  
+  </div>
+  
+  <div class="container mt-3">
+    <h4>평점 <br><hr> </h4>
+    <div>
+      <i class="bi bi-star-fill text-warning"></i>
+      <i class="bi bi-star-fill text-warning"></i>
+      <i class="bi bi-star-fill text-warning"></i>
+      <i class="bi bi-star-fill text-warning"></i>
+      <i class="bi bi-star-fill text-warning"></i>
+      <p>진짜 쩐다.. 내생의 최고의 영화였음... </p>
+      <p class="text-dark opacity-50">영화광 | 2013.06.13 08:25</p>
+      <hr>
+    </div>
+
+    <div>
+      <i class="bi bi-star-fill text-warning"></i>
+      <i class="bi bi-star-fill text-warning"></i>
+      <i class="bi bi-star-half text-warning"></i>
+      <i class="bi bi-star text-warning"></i>
+      <i class="bi bi-star text-warning"></i>
+      <p>무난하게 재밌음 </p>
+      <p class="text-dark opacity-50">재밌는 영화 | 2013.06.17 08:25</p>
+      <hr>
+    </div>
+
+
+  </div>
+
+
+
+      
+    
+
+  <footer class="text-center p-2 mb-3">
+    web-bootstrap. PJT by 김태형, 하승찬
+  </footer>
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"
+></script>
+</body>
+</html>
