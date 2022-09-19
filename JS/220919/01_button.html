@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">버튼</button>
+
+    <p id="cnt">0</p>
+
+    <script>
+        
+    let cnttext= 0
+
+        const btn = document.querySelector("#btn")
+            
+        btn.addEventListener("click",function(){
+            console.log('버튼클릭')
+            cnttext += 1
+            const cnt = document.querySelector('#cnt')
+            cnt.innerText = cnttext
+        })
+
+
+
+    </script>
+    
+    
+</body>
+</html>

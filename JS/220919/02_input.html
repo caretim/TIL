@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="intext" name="name" />
+    <p id="outtext"></p>
+
+    <script>
+        const intext = document.querySelector("input");
+        /*getElementById는 id로부터 요소를 가져옴*/
+        const log = document.getElementById("outtext");
+
+        intext.addEventListener("input",updateValue);
+
+        function updateValue(e) {
+            log.textContent = e.target.value;
+        }
+
+        
+        
+    </script>
+    
+</body>
+</html>

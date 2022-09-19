@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .modal-page{
+            position: fixed;
+            top : 0;
+            left: 0;
+            background-color: black;
+            width: 100%;
+            height: 100vh;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+
+        .active{
+            display: flex;
+        }
+    </style>
+    
+
+
+    <button id="modal_bnt">
+        모달버튼
+    </button>
+    <div class="modal-page" id ="modal_page"style= "flex-direction: column;">
+        모달페이지
+        <button id="modal-cancel-bnt">모달취소</button>
+    </div>
+    <script>
+        const modalToggle= function(){
+            document.querySelector("#modal_page").classList.toggle('active')
+        
+        }
+        const modal_bnt = document.querySelector("#modal_bnt")
+        modal_bnt = addEventListener('click',modalToggle)
+
+
+        const modal_cancel_bnt = document.querySelector("#modal-cancel-bnt")
+        modal_cancel_bnt.addEventListener('click',modalToggle)
+        
+    </script>
+</body>
+</html>
