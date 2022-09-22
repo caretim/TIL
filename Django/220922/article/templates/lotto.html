@@ -74,13 +74,18 @@
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script>
+        const lastWeek = [3,11,15,29,35,44]
+
         const button = document.querySelector('#lotto-btn')
 
 
         button.addEventListener('click',function(){
             //번호 생성 후 for문 6번으로 인덱스별 숫자 추출
-            for (var i = 0; i<6; i++){
+            for (var k = 0; k<5; k++){
                 let lottoNumber = _.sampleSize(_.range(1,46),6).sort((a,b)=>b - a)
+
+                let cnt = 0
+
 
                 console.log(lottoNumber)
                 const ballContainer = document.createElement('div')
