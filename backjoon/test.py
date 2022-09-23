@@ -1,16 +1,5 @@
 
+matrix = ['.','X','.']
 
-
-
-
-
-
-
-
-
-a,b=map(int,input().split())
-
-
-
-
-print(a-b)
+if matrix in 'X':
+    print (1)
