@@ -4,21 +4,29 @@ import sys
 # 주어진 배열의 값 범위가 작은 경우 빠른 속도를 갖는 정렬 알고리즘이다.
 #  최댓값과 입력 배열의 원소 값 개수를 누적합으로 구성한 배열로 정렬을 수행한다.
 
+#메모이제이션(memoization)은 컴퓨터 프로그램이 동일한 계산을 반복해야 할 때,
+# 이전에 계산한 값을 메모리에 저장함으로써 동일한 계산의 반복 수행을 제거하여
+# 프로그램 실행 속도를 빠르게 하는 기술이다
+
 # 카운팅 정렬 수행 과정
 
 # 1.입력 배열의 최댓값,  최댓값 +1의 Counting Array 생성한다.
 
-nls= [0]*10001  # 배열의 최댓값은 10000
+nls= [0]*10001  # 배열의 최댓값은 10000  
 
 # 2. 좌표의 원소를 더해 나가는 누적합 배열을 만들어준다.
     # 리스트의 인덱스 위치와 숫자를 체크한 후 리스트의 좌표에 입력값을 더 해준다.
-n= int(sys.stdin.readline().rstrip())
+
+input =sys.stdin.readline  # rstrip() 숫자형일 때는 안넣어도 됨 
+
+n= int(input()) #1~10000 받는 숫자의 크기가 정해져있음   
+
 for __ in range(n):
-    nls[int(sys.stdin.readline().rstrip())]+=1
+    nls[int(sys.stdin.readline())]+=1
 #ex) input list= [4,1,5,4,5] -> counting array = [[1],[0],[],[2],[2]]
 
-# 
 for i in range(10001):
-    if nls[i]>=1 : # counting array의 인덱스중 1보다 이상인 값을  확인 한다. (0인 값은 입력을 못 받은 값)
+    # if nls[i]>=1 : # counting array의 인덱스중 1보다 이상인 값을  확인 한다. (0인 값은 입력을 못 받은 값)
         for __ in range(nls[i]):  # 인덱스이 값만큼 인덱스의 좌표 (인덱스번호)를 출력한다.
             print(i)
+
