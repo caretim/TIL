@@ -56,11 +56,15 @@ def lotto(request):
 
     return render(request, 'lotto.html')
 
-def lotto_pracitce(request):
+def lotto_practice(request):
     lastweek=[3,11,15,29,35,44]
 
-    lottoball= random.sample(1,46)
-    sorted(lottoball)
+    lottolist=[]
+
+    for __ in range(5):
+        lottoball= random.sample(range(46),6)
+        sorted(lottoball)
+        lottolist.append(lottoball)
 
     context = {
         'n1' : lottoball[0],
@@ -69,12 +73,9 @@ def lotto_pracitce(request):
         'n4' : lottoball[3],
         'n5' : lottoball[4],
         'n6' : lottoball[5],
+        'ballList': lottolist,
     }
 
     
-
-    
-    
-
 
     return render(request, 'lotto_practice.html',context)

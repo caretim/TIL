@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,13 +11,8 @@
 
 <body>
     {% block content %}
-    <div class='bg-light'>
-        <h1>환영합니다</h1>
-    </div>
+    <p class="text-center mt-5">{{ name }}님은 전생에 {{ belife }}였습니다.</p>
     {% endblock %}
-
-
-
 </body>
 
 </html>

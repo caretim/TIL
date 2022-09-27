@@ -12,11 +12,20 @@
 
 <body>
     {% block content %}
-    <div class='bg-light'>
-        <h1>환영합니다</h1>
-    </div>
-    {% endblock %}
 
+    <p>
+        {% for lists in pword %}
+
+        {% for words in lists%}
+
+        <sapn>{{words}}</sapn>
+        {%endfor%}
+    </p>
+    <hr style="width: 100%; border: solid 1px black">
+
+    {%endfor%}
+
+    {% endblock %}
 
 
 </body>

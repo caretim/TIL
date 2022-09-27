@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,24 +8,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fake_search</title>
+    <title>Document</title>
 </head>
 
 <body>
     {% block content %}
+    <form action="/makehsum">
 
-    <h1>검색모음집</h1>
-
-
-    <form action="https://www.google.com/search">
-        Google 검색창 <input type="text" name="q">
+        <p>문단의 수</p> <input type="int" name="para">
+        <p>문단별 단어의 수 </p><input type="int" name="word">
         <input type="submit">
 
-    </form>
-
-    <form action="https://search.naver.com/search.naver">
-        네이버 <input type="text" name="query">
-        <input type="submit">
     </form>
     {% endblock %}
 </body>

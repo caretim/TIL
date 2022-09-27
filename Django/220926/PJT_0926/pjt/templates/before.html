@@ -7,25 +7,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fake_search</title>
+    <title>전생테스트</title>
 </head>
 
 <body>
     {% block content %}
+    <h1>전생테스트</h1>
 
-    <h1>검색모음집</h1>
-
-
-    <form action="https://www.google.com/search">
-        Google 검색창 <input type="text" name="q">
+    <p>당신의 이름을 입력해주세요</p>
+    <form action="/before2" method="GET">
+        <input type="text" name="pname">
         <input type="submit">
 
     </form>
 
-    <form action="https://search.naver.com/search.naver">
-        네이버 <input type="text" name="query">
-        <input type="submit">
-    </form>
     {% endblock %}
 </body>
 
