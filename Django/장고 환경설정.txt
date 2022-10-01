@@ -1,0 +1,58 @@
+1.가상환경 생성 실행
+	python -m venv [가상환경이름]
+
+
+2. 가상환경 실행 
+	. venv/Scripts/activate
+
+	정상 실행 되었다면 cmd환경에서 (venv) <- 표시됨
+
+
+3. 장고 3.2.13설치
+	pip install django==3.2.13
+
+
+4. 장고 프로젝트 생성
+	django-admin startproject [프로젝트이름]
+
+5.앱 생성
+	주의할점 : 커맨드를 manage.py가 있는 경로에서 실행시켜야함
+
+	python manage.py startapp [앱 이름]
+
+6.앱 등록
+	EDIT실행 -> 코드 settings.py 찾아서 앱등록해주기 
+	INSTALLED_APPS의 리스트에 생성된 앱을 추가해준다.
+
+7.서버 실행
+	python manage.py runserver
+
+8.앱 URL VIEW TEMPLATE
+	HTTP:요청하면 무언가를 응답(response)하는 방식
+	
+
+	url = urls.py에서 from [프로젝트명] import views
+		path를 만들어서 url요청을 받으면 열어줄 경로를 지정해줌
+	
+	
+	view = 앱폴더에서 views.py에서 함수를 넣어서 선언해준다
+	
+		def index(request):
+	
+			retrun render(request,"index.html")
+
+	templates=  templates에 html파일을 저장해줌
+	
+	
+2659518
+
+25
+
+
+
+ 
+
+
+
+
+	

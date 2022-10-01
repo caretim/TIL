@@ -3,25 +3,25 @@ n = int(input())
 
 nlist = list(map(int, input().split()))
 
-nlist.sort()
+nlist.sort()  # 투포인터로 탐색하기 위해 숫자를 정렬해준다
 
 maxn = int(input())
 
 # halfn = maxn - maxn // 2
 
-cnt = 0
+cnt = 0  # 반복문 중 manx의 값과 같다면 카운트 +1를 넣어줄 변수
 
-i = 0
-j = n - 1
+i = 0  # 첫번째 포인터 시작점
+j = n - 1  # 두번째 포인터 시작점 (정렬된 리스트의 마지막 인덱스에서 시작 (제일 큰 수) )
 # 2개의 번호만 찾으면 됨,
 
-while i > j:
-    if nlist[i] + nlist[j] < maxn:
-        i += 1
-    elif nlist[i] + nlist[j] > maxn:
-        j -= 1
+while i > j:  # 첫번째 포인터와 두번째가 포인터가 만나는 순간까지
+    if nlist[i] + nlist[j] < maxn:  # 포인터 1과 2가 더해서 찾는 값 보다 작다면 첫번째인덱스 포인터+1
+        i += 1  # 찾는 값보다 작을 때 앞의 인덱스번호를 증가시키는 이유는 두포인터의 합을 늘리기 위해
+    elif nlist[i] + nlist[j] > maxn:  # 포인터 1과 2가 더해서 찾는 값 보다 크다면 마지막인덱스 포인터-1
+        j -= 1  # 찾는 값보다 클 때 마지막인덱스 포인터를 증가시키는 이유는 두 포인터의 합을 줄이기 위해서
     else:
-        cnt += 1
+        cnt += 1  # 찾는 값과 같다면 포인터 1 ,2가 인덱스 중앙으로 올 수 있도록 각각 -1
         i += 1
         j -= 1
 

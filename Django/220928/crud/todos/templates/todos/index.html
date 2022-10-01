@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="contaniner m-5 ">
+    <h1 class="text-center">할 일 추가</h1>
+
+
+    <form action="{% url 'todos:create'%}">
+        <div class=" d-flex justify-content-center">
+            <div class="m-5 w-75">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">할 일</span>
+                    <input type="text" name='content' maxlength="10" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                </div>
+            </div>
+            <div>
+
+            </div>
+            <div class="input-group m-5 w-75">
+                <label class="input-group-text" for="inputGroupSelect01">우선순위</label>
+                <select class="form-select text-center " aria-label="우선순위" name="priority">
+                    <option selected>우선순위</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+        <div class="d-flex justify-content-evenly ">
+            <!-- <div class=>
+
+                <p>시작</p><input type="date" name="created_at">
+            </div> -->
+
+            <div>
+                <label class="input-group-text text-center" for="inputGroupSelect01">마감</label>
+                <input type="date" name="deadline">
+            </div>
+        </div>
+        <div class=" d-flex justify-content-center mt-5">
+            <button type="submit" class="btn btn-outline-primary" style="width: 30%;">추가</button>
+        </div>
+    </form>
+
+</div>
+<hr>
+
+
+
+<div class="container">
+    <div>
+        <h1 class="text-center">스케쥴 표</h1>
+    </div>
+    <table class="table table-dark table-hover">
+        <thead>
+            <th>할 일</th>
+            <th>달성여부</th>
+            <th>우선순위</th>
+            <th>시작날짜</th>
+            <th>마감날짜</th>
+            <th>수정</th>
+            <th>삭제</th>
+        </thead>
+
+        <tbody>
+            {%for do in todos%}
+            <tr onclick="location.href='{% url 'todos:edit' do.pk  %}' ">
+
+                <td>{{do.content}}</td>
+
+                {%if do.completed == False%}
+                <td>미달성</td>
+                {% else %}
+                <td>달성</td>
+                {% endif %}
+
+
+
+                <td>{{do.priority}}</td>
+                <td>{{do.created_at}}</td>
+                <td>{{do.deadline}}</td>
+                <td><a href="{% url 'todos:edit' do.pk  %}">수정</a></td>
+                <td><a href="{% url 'todos:delete' do.pk  %}">삭제</a></td>
+            </tr>
+            {%endfor%}
+
+        </tbody>
+    </table>
+
+    <!-- <ul>
+        {%for do in todos%}
+        <div> 할 일 {{do.content}} </span> <span> 완수 여부 {{do.completed}} </span> </div>
+        <li> pk번호{{do.pk}} <br><span> 할 일 {{do.content}} </span> <br> 완수 여부{{do.completed}}
+            <br> 우선순위 {{do.priority}} <br> 시작 날짜{{do.created_at}}<br>마감 날짜{{do.deadline}}
+            <a href="{% url 'todos:delete' do.pk  %}">삭제</a> <a href=""> 수정 </a>
+        </li> -->
+
+    <!-- {%endfor%} -->
+    </ul>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

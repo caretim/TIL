@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+
+{{todos.id}}
+
+
+해야 할 일{{todos.content}}
+{{todos.created_at}}
+{{todos.deadline}}
+
+
+
+
+
+<a href="{% url 'todos:index' %}">돌아가기</a>
+
+
+{% endblock %}
