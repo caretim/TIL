@@ -71,7 +71,7 @@
             {%for do in todos%}
             <tr onclick="location.href='{% url 'todos:edit' do.pk  %}' ">
 
-                <td>{{do.content}}</td>
+                <td><a href="{% url 'todos:edit' do.pk  %}">{{do.content}}</a></td>
 
                 {%if do.completed == False%}
                 <td>미달성</td>
