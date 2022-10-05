@@ -1,4 +1,5 @@
 
+from multiprocessing import context
 from django.shortcuts import render,redirect
 from .models import chicken
 from .forms import testForm
@@ -59,19 +60,37 @@ def delete (request,pk):
 
 
 def update (request,pk):
-    if request.method=='GET':
-        rb= chicken.objects.get(pk=pk)
-        context={
-            'rb':rb
-        }
-        return render (request,'testapp/update.html',context)
-
+    rb= chicken.objects.get(pk=pk)
+    if request.method == "POST":
+        # POST : input 값 가져와서, 검증하고, DB에 저장
+        form = testForm(request.POST, instance=rb)
+        if form.is_valid():
+            #유효성 검사 후 통과가 된다면 ,저장 후 인덱스로 리다이렉트
+            form.save()
+            return redirect('testapp:detail',rb.pk)
     else:
-        ra = chicken.objects.get(pk=pk)
-        title = request.POST.get('title')
-        content= request.POST.get('content')
-        ra.title=title
-        ra.content=content
-        ra.save()
-        return redirect('/')
+        form = testForm(instance=rb)
+
+    context ={'form':form,
+    'rb':rb}
+
+    return render (request,'testapp/update.html',context)
+
+
+
+    # if request.method=='GET':
+    #     rb= chicken.objects.get(pk=pk)
+    #     context={
+    #         'rb':rb
+    #     }
+    #     return render (request,'testapp/update.html',context)
+
+    # else:
+    #     ra = chicken.objects.get(pk=pk)
+    #     title = request.POST.get('title')
+    #     content= request.POST.get('content')
+    #     ra.title=title
+    #     ra.content=content
+    #     ra.save()
+    #     return redirect('/')
 

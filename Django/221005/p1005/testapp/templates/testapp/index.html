@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
 <h1> 인덱스 페이지 ㅎㅇㅎㅇ</h1>
 <h1>치킨을 넣어서 디비 만들고 치킨 메뉴들을 인덱스에 뽑아넣자</h1>
 
+{% load static %}
+<a href="{% url 'testapp:create' %}" type="button" class="btn btn-outline-warning m-5">치킨메뉴추가</a>
 
-<a href="{% url 'testapp:create' %}" type="button" class="btn btn-outline-warning">치킨메뉴추가</a>
+<img src="{% static 'img/eat.gif' %}" alt="">
 
 
 <div class="container">
@@ -15,9 +18,8 @@
     |{{c.content}}
     <hr>
 
-
-
-
     {%endfor%}
 </div>
+
+
 {% endblock %}

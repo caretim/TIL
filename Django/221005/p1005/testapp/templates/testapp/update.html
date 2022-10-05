@@ -1,11 +1,22 @@
 {% extends 'base.html' %}
+{% load django_bootstrap5 %}
 
 {% block content %}
 <h1> 여긴 수정페이지야 </h1>
 <h1> 바꿀 내용을 수정해주자</h1>
 <a href="{% url 'testapp:index' %}"> 돌아가기</a>
 
-<form action="{% url 'testapp:update' rb.pk  %}" method="post">
+
+<!-- url으로 post보낼 때 rb.pk 붙여주기 업데이트 파일의 id키를 보내주기위해 -->
+<form action="{% url 'testapp:update' rb.pk %}" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form%}
+    <!-- {{ form.as_p }} -->
+    <!-- 업데이트 views에 저장된 form 데이터를 가져오기 위해 {{ form.as_p }}  사용  table,p ,td태그 사용가능 -->
+    <input type="submit" value="수정">
+</form>
+
+<!-- <form action="{% url 'testapp:update' rb.pk  %}" method="post">
     {% csrf_token %}
     {{ test_form.as_p }}
     <label for="title">치킨이름</label>
@@ -14,7 +25,6 @@
     <textarea name="content" id="content" cols="30" rows="10">{{rb.content}}</textarea>
     <input type="submit" value="치킨 추가!">
 
-</form>
-
+</form> -->
 
 {% endblock %}
