@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> 인덱스 페이지 ㅎㅇㅎㅇ</h1>
+<h1>치킨을 넣어서 디비 만들고 치킨 메뉴들을 인덱스에 뽑아넣자</h1>
+
+
+<a href="{% url 'testapp:create' %}" type="button" class="btn btn-outline-warning">치킨메뉴추가</a>
+
+
+<div class="container">
+    {% for c in chickens%}
+    <!-- def index에 저장된 딕셔너리의 값 chickens을 for문을 데이터베이스의 안의 데이터를 꺼낸다 -->
+    <a href="{% url 'testapp:detail' c.pk %}"> {{c.title}} </a>
+    |{{c.content}}
+    <hr>
+
+
+
+
+    {%endfor%}
+</div>
+{% endblock %}

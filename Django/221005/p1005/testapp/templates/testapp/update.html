@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> 여긴 수정페이지야 </h1>
+<h1> 바꿀 내용을 수정해주자</h1>
+<a href="{% url 'testapp:index' %}"> 돌아가기</a>
+
+<form action="{% url 'testapp:update' rb.pk  %}" method="post">
+    {% csrf_token %}
+    {{ test_form.as_p }}
+    <label for="title">치킨이름</label>
+    <input type="text" name='title' value="{{rb.title}}">
+    <label for="content">내용</label>
+    <textarea name="content" id="content" cols="30" rows="10">{{rb.content}}</textarea>
+    <input type="submit" value="치킨 추가!">
+
+</form>
+
+
+{% endblock %}

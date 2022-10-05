@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> 여기는 디테일페이지야</h1>
+<h1>수정하거나 지울까?</h1>
+
+
+
+
+<div class="container">
+
+    {{pick.title}}
+    <!-- views에서 저장된 컨텐츠들을 꺼낸다 이때 for문이 아니어야함(단일데이터이기에) -->
+    {{pick.content}}
+    <hr>
+
+
+
+
+
+</div>
+
+
+<a href="{% url 'testapp:delete' pick.pk %}" type="button" class="btn btn-outline-info">삭제</a>
+<a href="{% url 'testapp:update' pick.pk %}" type="button" class="btn btn-outline-info">수정</a>
+{% endblock %}
