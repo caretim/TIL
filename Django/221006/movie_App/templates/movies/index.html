@@ -47,11 +47,10 @@
                 <img src="{% static 'img/curse.jpg' %}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">제목 : {{detail.title}}</h5>
-                    <p class="card-text"></p>
+                    <p class="card-text text-black"> 러닝타임 {{detail.running_time}}</p>
                     <p class="card-text"><small class="text-muted"> 줄거리 : {{detail.summary}}</small></p>
                 </div>
             </div>
-
 
 
             <!-- <div class="my-5">
@@ -65,12 +64,11 @@
             </div> -->
 
 
-            <button type="button" href="{% url 'movie_App:update' detail.pk %}" class="btn btn-outline-success">
-                <a href="{% url 'movie_App:delete' detail.pk %}">삭제</a>
-            </button>
-            <button type="button" href="{% url 'movie_App:update' detail.pk %}" class="btn btn-outline-success">
-                <a href="{% url 'movie_App:update' detail.pk %}">수정</a>
-            </button>
+
+            <a class="btn btn-outline-success" href="{% url 'movie_App:delete' detail.pk %}">삭제</a>
+
+            <a class="btn btn-outline-success" href="{% url 'movie_App:update' detail.pk %}">수정</a>
+
 
         </div>
     </div>

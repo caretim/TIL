@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+
+
+
+<div>
+    <h1 class="text-center my-5">영화 검색목록</h1>
+</div>
+<div>
+    <div class="row">
+        <div class="col-8 container">
+            <table class="table table-dark  table-hover p-3 container text-center">
+                <thead>
+                    <th>PK</th>
+                    <th>영화 제목</th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        {% for movie in aa %}
+                        <td>{{movie.pk}}</td>
+                        <td><a href="{% url 'movie_App:detail' movie.pk %}">{{movie.title}}</a>
+
+                </tbody>
+                {%endfor%}
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+{%endblock%}

@@ -2,6 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render, redirect
 from .models import Movie
 from .forms import movie_Form
+from django.db.models import Q
 
 
 # Create your views here.
@@ -61,3 +62,16 @@ def update(request, pk):
         }
 
         return render(request, "movies/update.html", context)
+
+
+def search(request):
+    all_date = Movie.objects.all()
+    search = request.GET.get("search", "")
+    if search:
+        all_movie = all_date.filter(title__icontains=search)
+
+    context = {
+        "aa": all_movie,
+    }
+
+    return render(request, "movies/search.html", context)

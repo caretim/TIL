@@ -18,7 +18,6 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container">
-
             <div>
                 <a class="navbar-brand text-white" href="{% url 'movie_App:index' %}"><img style="height: 4rem;"
                         src="/static/img/logo.png.gif" alt=""></a>
@@ -30,7 +29,7 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <form class="d-flex" role="search" Form method="GET" action="">
+            <form class="d-flex" role="search" method="GET" action="{% url 'movie_App:search' %}">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
@@ -41,19 +40,6 @@
     {% endblock %}
 </body>
 
-<style>
-    body {
-        background-image: url(https://www.xtrafondos.com/wallpapers/personajes-de-marvel-10672.jpg);
-        background-repeat: repeat-y;
-    }
 
-    p {
-        color: white;
-    }
-
-    h1 {
-        color: white;
-    }
-</style>
 
 </html>
