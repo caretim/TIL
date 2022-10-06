@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{%block content%}
+
+
+<div>
+    <div class="row">
+        <div class="col-8 container  bg-dark  mt-3" style="border-radius: 2rem; padding-top: 10px;">
+            <h1 style="margin-top: 2rem;">영화 수정 페이지</h1>
+            <form action="{%url 'movie_App:update' update_movie.pk %}" method="POST">
+                {% csrf_token %}
+
+                {% load django_bootstrap5 %}
+
+                {% bootstrap_form form%}
+                <button type="submit" class="btn btn-outline-success">수정</button>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}

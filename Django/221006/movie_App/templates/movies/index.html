@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+
+<!-- 목록 페이지일 때 -->
+{% if all_movie %}
+<div>
+    <h1 class="text-center my-5">영화 목록</h1>
+</div>
+<div>
+    <div class="row">
+        <div class="col-8 container">
+            <table class="table table-dark  table-hover p-3 container text-center">
+                <thead>
+                    <th>PK</th>
+                    <th>영화 제목</th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        {% for movie in all_movie%}
+                        <td>{{movie.pk}}</td>
+                        <td><a href="{% url 'movie_App:detail' movie.pk %}">{{movie.title}}</a>
+
+                </tbody>
+                {%endfor%}
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{%endif%}
+
+
+<!-- 상세보기 페이지일 때 -->
+{% if detail %}
+<div>
+    <div class="p-5">
+
+    </div>
+    <div class="row">
+        <div class="col-8 container bg-dark">
+            <div class="card mb-3">
+                {% load static %}
+                <img src="{% static 'img/curse.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">제목 : {{detail.title}}</h5>
+                    <p class="card-text"></p>
+                    <p class="card-text"><small class="text-muted"> 줄거리 : {{detail.summary}}</small></p>
+                </div>
+            </div>
+
+
+
+            <!-- <div class="my-5">
+                
+                <h1>{{detail.title}}</h1>
+            </div>
+            <div>
+
+                <h1>{{detail.summary}}</h1>
+
+            </div> -->
+
+
+            <button type="button" href="{% url 'movie_App:update' detail.pk %}" class="btn btn-outline-success">
+                <a href="{% url 'movie_App:delete' detail.pk %}">삭제</a>
+            </button>
+            <button type="button" href="{% url 'movie_App:update' detail.pk %}" class="btn btn-outline-success">
+                <a href="{% url 'movie_App:update' detail.pk %}">수정</a>
+            </button>
+
+        </div>
+    </div>
+</div>
+<div style="height: 5rem;">
+
+</div>
+{%endif%}
+
+{%endblock%}
