@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  {%if request.resolver_match.url_name == 'create'%}
+    <div class="container my-5 align-middle text-center border bg-white" style="width: 600px; box-shadow: 4px 12px 30px 6px rgb(0 0 0 / 20%); border-radius: 15px; ">
+      <div class="m-5 mb-5">
+        <h1>새 리뷰 작성하기</h1>
+        <form action="" method="POST">
+          {% csrf_token %}
+          {{ review_form.as_p }}
+          <input type="submit" class="btn btn-dark" value="생성">
+        </form>
+      </div>
+    </div>
+    {%endif%}
+
+    {%if request.resolver_match.url_name == 'update'%}
+      <div class="container my-5 align-middle text-center border bg-white" style="width: 600px; box-shadow: 4px 12px 30px 6px rgb(0 0 0 / 20%); border-radius: 15px; ">
+        <div class="m-5 mb-5">
+          <h1>리뷰 수정하기</h1>
+          <form action="" method="POST">
+            {% csrf_token %}
+            {{ review_form.as_p }}
+            <input type="submit" class="btn btn-dark" value="수정">
+          </form>
+        </div>
+      </div>
+
+      {%endif%}
+
+    {% endblock content %}

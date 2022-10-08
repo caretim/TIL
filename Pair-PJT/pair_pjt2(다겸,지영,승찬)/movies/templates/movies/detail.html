@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container position-relative my-5 align-middle text-center border bg-white" style="width: 600px; box-shadow: 4px 12px 30px 6px rgb(0 0 0 / 20%); border-radius: 15px; ">
+    <div class="m-5 mb-5">
+      <h1>{{review_get.title}}</h1>
+      <p>{{review_get.content}}</p>
+
+      {% if review_get.grade == 5 %}
+
+        <p>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+        </p>
+      {% endif %}
+      {% if review_get.grade == 4 %}
+        <p>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+        </p>
+      {% endif %}
+      {% if review_get.grade == 3 %}
+        <p>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+        </p>
+      {% endif %}
+      {% if review_get.grade == 2 %}
+        <p>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+        </p>
+      {% endif %}
+      {% if review_get.grade == 1 %}
+        <p>
+          <i class="bi bi-star-fill" style="color:orange;"></i>
+        </p>
+      {% endif %}
+
+      <a href="{% url 'movies:index' %}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg position-absolute top-0 end-0 m-3" style="color: black" viewbox="0 0 16 16">
+          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+        </svg>
+      </a>
+      <a href="{% url 'movies:update' review_get.pk %}" class="btn btn-outline-dark">수정버튼</a>
+      <a href="{% url 'movies:delete' review_get.pk %}" class="btn btn-danger">삭제버튼</a>
+    </div>
+  </div>
+{% endblock %}

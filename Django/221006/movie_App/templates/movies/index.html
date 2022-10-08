@@ -45,6 +45,7 @@
             <div class="card mb-3">
                 {% load static %}
                 <img src="{% static 'img/curse.jpg' %}" class="card-img-top" alt="...">
+                <img src="{% static '{{detail.title}}' %}" alt="">
                 <div class="card-body">
                     <h5 class="card-title">제목 : {{detail.title}}</h5>
                     <p class="card-text text-black"> 러닝타임 {{detail.running_time}}</p>

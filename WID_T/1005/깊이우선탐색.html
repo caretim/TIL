@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container d-flex  align-items-center flex-column">
+        <div>
+
+            <h1 style="margin-top: 5rem; ">깊이 우선 탐색</h1>
+
+            <p class="mt-5">깊이 우선 탐색(Depth First Search, DFS)이란? </p>
+
+        </div>
+        <hr>
+        <div>
+            <p>그래프 완전 탐색 기법중 하나이며 그래프의 시작노드에서 출발하여 최대깊이로 내려가는 탐색방식</p>
+            <p class="mb-5">
+                루트 노드에서 시작하여 다른 분기 (Branch) 로 넘어가기 전, 현재 탐색중인 분기를 완벽하게 (깊게) 탐색한다.<br>
+                가장 깊은 노드까지 도달하였을 때 탐색한 경로를 역추적하여 되돌아나오기 위해 스택을 사용한다.<br>
+                또한 이미 방문한 노드를 다시 방문하지 않기 위해 방문한 노드를 따로저장을 해야한다. 이를 '방문 처리'라고한다. </p>
+            <p></p>
+            <ul>
+                <li>전체 노드를 탐색하고자 할 때 사용한다</li>
+                <li> 깊이 우선 탐색 알고리즘은 스택(stack) 자료구조에 기초한다</li>
+                <li>빠르게 모든 경우의 수를 탐색하고자 할 때 쉽게 사용할 수 있다</li>
+                <li>한번 방문한 노드를 다시 방문하는걸 방지하기 위해 체크할 리스트를 필요로한다.</li>
+                <li>스택의 후입선출의 특성을 가지므로 스택을 활용하는 경우가 많다.</li>
+
+            </ul>
+        </div>
+        <img src="https://blog.kakaocdn.net/dn/WL1d8/btrfn4HG7z4/tkVPpuLyiO1lnTrKbGmXEK/img.gif" alt=" 깊이우선탐색">
+
+        <hr>
+        <p>
+
+            깊이 우선 탐색 알고리즘은 스택(stack) 자료구조에 기초한다는 점에서 구현이 간단하다</p>
+        <p>
+            탐색을 수행함에 있어서 𝑂(𝑁)의 시간이 소요된다</p>
+
+
+        <footer class="p-3"></footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

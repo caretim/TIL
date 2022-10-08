@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container d-flex  align-items-center flex-column">
+        <div>
+
+            <h1 style="margin-top: 5rem; ">너비 우선 탐색</h1>
+
+            <p class="mt-5">너비 우선 탐색(Breadth First Search, BFS)이란? </p>
+
+        </div>
+        <hr>
+        <div>
+            <p>그래프 완전 탐색 기법중 하나이며 그래프의 시작노드에서 출발하여 시작 노드를 기준으로 가까운 노드를 먼저 방문하는</p>
+            <p class="mb-5">현재 노드와 가까운 노드를 우선적으로 넓게 탐색하는 방식<br> 큐(Queue)를 사용한다.
+                또한 이미 방문한 노드를 다시 방문하지 않기 위해 방문한 노드를 따로저장을 해야한다. 이를 '방문 처리'라고한다</p>
+            <p></p>
+            <ul>
+                <li>전체 노드를 탐색하고자 할 때 사용한다</li>
+                <li>큐(Queue) 자료구조(후입선출)에 기초한다.</li>
+                <li>도착하는 경로가 여러가지일 때 최단 경로를 찾을 수 있다.</li>
+                <li>한번 방문한 노드를 다시 방문하는걸 방지하기 위해 체크할 리스트를 필요로한다.</li>
+
+            </ul>
+        </div>
+        <img src="https://blog.kakaocdn.net/dn/TfBFL/btrfPJi2DlD/Wjtq0PCbsI36aqI49B2nmk/img.gif" alt=" 너비우선탐색">
+
+        <hr>
+        <p>
+
+            깊이 우선 탐색 알고리즘은 큐(queue) 자료구조에 기초한다는 점에서 구현이 간단하다</p>
+        <p>
+            탐색을 수행함에 있어서 𝑂(𝑁)의 시간이 소요된다</p>
+
+
+
+
+
+        <p> 1) 그래프의 모든 정점을 방문하는 것이 주요한 문제 </p>
+
+        단순히 모든 정점을 방문하는 것이 중요한 문제의 경우 DFS, BFS 두 가지 방법 중 어느 것을 사용해도 상관 없다. 그래프가 크다면 DFS. 그래프가 크지 앟고, 검색 시작 지점으로 부터
+        목표 값이 멀지 않다면 BFS.
+
+        <p>2) 각 경로의 특징을 저장해둬야 하는 문제 : DFS</p>
+
+        예를 들면 각 정점에 숫자가 적혀있고 a부터 b까지 가는 경로를 구하는데 경로에 같은 숫자가 있으면 안 된다는 문제 등, 각각의 경로마다 특징을 저장해둬야 할 때는 DFS를 사용한다
+
+        <p>3) 최단거리 구해야 하는 문제 : BFS</p>
+
+        <footer class="p-3"></footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
