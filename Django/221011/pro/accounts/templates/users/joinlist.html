@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+<h1>회원목록페이지! </h1>
+<div>
+    <h4>회원목록</h4>
+    <table class="table table-dark table-striped">
+        <th>회원번호</th>
+        <th>회원이름</th>
+        <th>이메일</th>
+
+
+        {%for user in users%}
+        <tr>
+            <td>{{user.pk}}</td>
+            <td><a href="{% url 'accounts:profil' user.pk %}">{{user.username}}</a></td>
+            <td>{{user.email}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<button type="button" class="btn btn-primary btn-lg "><a class="text-white"
+        href="{% url 'accounts:index' %}">돌아가기</a></button>
+
+
+
+{% endblock %}
