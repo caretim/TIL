@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<h1> 영화 정보 추가 ! </h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    {% load static %}
+    {% load django_bootstrap5 %}
+    {% bootstrap_form form_M %}
+    <input type="submit" value="생성">
+</form>
+{% endblock %}

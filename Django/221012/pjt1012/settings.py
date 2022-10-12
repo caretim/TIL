@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "movies",
     "django_bootstrap5",
     "accounts",
     "django.contrib.admin",

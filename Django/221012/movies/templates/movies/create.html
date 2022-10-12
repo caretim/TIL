@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<h1> 생성페이지 ! </h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    {% load static %}
+    {% load django_bootstrap5 %}
+    {% bootstrap_form form_R %}
+    <input type="submit" value="생성">
+</form>
+{% endblock %}

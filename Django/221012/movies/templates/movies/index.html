@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> 인덱스 페이지 도착</h1>
+<a href="{% url 'accounts:login' %}"> 로그인</a>
+
+{{request.user}}
+
+<a href="{% url 'movies:create' %}"> 리뷰쓰기</a>
+
+
+{% if reviews%}
+{% for review in reviews %}
+<p>리뷰 제목 : {{review.title}}</p>
+<p>글쓴이 :{{review.userkey.username}}</p>
+
+{%endfor%}
+{%endif %}
+
+
+<!-- {% if review %}
+{% for review in review %}
+
+<p>리뷰 제목 : {{review.title}}</p>
+
+{%endfor%}
+{% endif %} -->
+{% endblock %}
