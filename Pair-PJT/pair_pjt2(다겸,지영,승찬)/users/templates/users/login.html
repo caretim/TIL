@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<div class="container my-5 align-middle text-center border bg-white"
+    style="width: 600px; box-shadow: 4px 12px 30px 6px rgb(0 0 0 / 20%); border-radius: 15px; ">
+    <div class="m-5 mb-5">
+        <h1> 로그인페이지 </h1>
+        <form action="{% url 'users:login' %}" method="POST">
+            {% csrf_token %}
+            {% include 'users/404_errors.html' %}
+            {{ form.as_p }}
+            <!-- <div>
+                <label for="id">사용자 아이디</label>
+                <input type="text" name="username" id="username">
+            </div>
+            <div>
+                <label for="password">비밀번호</label>
+                <input type="text" name="password" id="password">
+            </div> -->
+            <div>
+                <button type="submit">로그인</button>
+                <button> <a href="{% url 'users:signup' %}">회원가입</a>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<!-- 입력 항목 username과 password는 모두 django.contrib.auth 앱에서 요구하는 필수 항목이다. -->
+{% endblock %}

@@ -1,5 +1,6 @@
-from calendar import c
 from django.db import models
+from django.contrib.auth.models import User
+
 
 RATE_CHOICES = (
     (1, "★"),
@@ -32,6 +33,7 @@ title_table = (
 
 
 class Review(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=30)
     content = models.TextField()
     movie_name = models.CharField(max_length=30, choices=title_table)
@@ -39,6 +41,7 @@ class Review(models.Model):
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
     genre = models.CharField(max_length=5, choices=genre_table)
+
 
 class Movie(models.Model):
     movie_title = models.CharField(max_length=30)

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> 회원가입 </h1>
+<form action="{% url 'users:signup' %}" method="POST">
+    {% csrf_token %}
+    {% include 'users/404_errors.html' %}
+    <div class="container my-5 align-middle text-center border bg-white"
+        style="width: 600px; box-shadow: 4px 12px 30px 6px rgb(0 0 0 / 20%); border-radius: 15px; ">
+        <div class="m-5 mb-5">
+            <div>
+                <label for="id">사용자 아이디</label>
+                <input type="text" name="username" id="username">
+            </div>
+            <div>
+                <label for="password1">비밀번호</label>
+                <input type="text" name="password1" id="password1">
+            </div>
+            <div>
+                <label for="password2">비밀번호 확인</label>
+                <input type="text" name="password2" id="password2">
+            </div>
+            <div>
+                <label for="email">이메일</label>
+                <input type="text" name="email" id="email">
+            </div>
+
+            <div>
+                <button type="submit">회원가입</button>
+
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div>
+        <label for="id">사용자 아이디</label>
+        <input type="text" name="username" id="username">
+    </div>
+    <div>
+        <label for="password">비밀번호</label>
+        <input type="text" name="password" id="password">
+    </div>
+    <button type="submit">회원가입</button>
+</form> -->
+    <!-- 입력 항목 username과 password는 모두 django.contrib.auth 앱에서 요구하는 필수 항목이다. -->
+    {% endblock %}

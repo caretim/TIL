@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+{%block content%}
+<h1>
+    인덱스페이지 도착!
+</h1>
+
+{% if request.user.is_authenticated %}
+<p>{{request.user}}님 환영합니다</p>
+<a href="{% url 'accounts:logout' %}">로그아웃</a>
+
+{% else %}
+<a href="{% url 'accounts:signup' %}"> 회원가입 </a>
+
+<a href="{% url 'accounts:login' %}"> 로그인 </a>
+{%endif%}
+
+
+
+
+<h1>회원목록페이지! </h1>
+<div>
+    <h4>회원목록</h4>
+    <table class="table table-dark table-striped">
+        <th>회원번호</th>
+        <th>회원이름</th>
+        <th>이메일</th>
+
+
+        {%for user in all_date%}
+        <tr>
+            <td>{{user.pk}}</td>
+            <td><a href="{% url 'accounts:profil' user.pk %}">{{user.username}}</a></td>
+            <td>{{user.email}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{%endblock%}

@@ -1,82 +1,84 @@
 {% extends 'base.html' %}
 {% block content %}
-  <div class="container m-5">
-    <div class="d-flex border p-5" style="height: 100%; box-shadow: 4px 12px 30px 6px rgb(0 0 0 / 20%); border-radius: 15px;">
-      <img src="{{poster_img}}" style="height: 25rem;" alt="">
-      <div class="my-auto ms-5">
-        <h1>{{ movie.movie_title }}</h1>
-        <p>{{ movie.movie_conent }}</p>
-      </div>
+{{request.user}}
+<div class="container m-5">
+  <div class="d-flex border p-5"
+    style="height: 100%; box-shadow: 4px 12px 30px 6px rgb(0 0 0 / 20%); border-radius: 15px;">
+    <img src="{{poster_img}}" style="height: 25rem;" alt="">
+    <div class="my-auto ms-5">
+      <h1>{{ movie.movie_title }}</h1>
+      <p>{{ movie.movie_conent }}</p>
     </div>
-
-    <table class="table text-center mt-5">
-      <thead>
-        <tr>
-          <th scope="col">글 제목</th>
-          <th scope="col">영화 제목</th>
-          <th scope="col">평점</th>
-          <th scope="col">작성/수정시간</th>
-        </tr>
-      </thead>
-      <tbody class="mb-0">
-        {% for review in movie_filter %}
-          <tr>
-            <th scope="row">
-              <a href="{% url 'movies:detail' review.pk %}" class="text-decoration-none text-dark">{{ review.title }}</a>
-            </th>
-            <td>{{ review.movie_name }}</td>
-
-            <td>
-              {% if review.grade == 5 %}
-                <p>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                </p>
-              {% endif %}
-              {% if review.grade == 4 %}
-                <p>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                </p>
-              {% endif %}
-              {% if review.grade == 3 %}
-                <p>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                </p>
-              {% endif %}
-              {% if review.grade == 2 %}
-                <p>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                </p>
-              {% endif %}
-              {% if review.grade == 1 %}
-                <p>
-                  <i class="bi bi-star-fill" style="color:orange;"></i>
-                </p>
-              {% endif %}
-            </td>
-
-            <td>
-              {% if review.created_at == review.updated_at %}
-                {{ review.created_at|date:'m월d일' }}
-              {% endif %}
-            </td>
-            <td>
-              {% if review.created_at != review.updated_at %}
-                {{ review.updated_at|date:'m월d일' }}
-              {% endif %}
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
   </div>
+
+  <table class="table text-center mt-5">
+    <thead>
+      <tr>
+        <th scope="col">글 제목</th>
+        <th scope="col">영화 제목</th>
+        <th scope="col">평점</th>
+        <th scope="col">작성/수정시간</th>
+      </tr>
+    </thead>
+    <tbody class="mb-0">
+      {% for review in movie_filter %}
+      <tr>
+        <th scope="row">
+          <a href="{% url 'movies:detail' review.pk %}" class="text-decoration-none text-dark">{{ review.title }}</a>
+        </th>
+        <td>{{ review.movie_name }}</td>
+
+        <td>
+          {% if review.grade == 5 %}
+          <p>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+          </p>
+          {% endif %}
+          {% if review.grade == 4 %}
+          <p>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+          </p>
+          {% endif %}
+          {% if review.grade == 3 %}
+          <p>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+          </p>
+          {% endif %}
+          {% if review.grade == 2 %}
+          <p>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+          </p>
+          {% endif %}
+          {% if review.grade == 1 %}
+          <p>
+            <i class="bi bi-star-fill" style="color:orange;"></i>
+          </p>
+          {% endif %}
+        </td>
+
+        <td>
+          {% if review.created_at == review.updated_at %}
+          {{ review.created_at|date:'m월d일' }}
+          {% endif %}
+        </td>
+        <td>
+          {% if review.created_at != review.updated_at %}
+          {{ review.updated_at|date:'m월d일' }}
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}

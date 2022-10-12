@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+<h1> {{user.username}}님의 회원정보 </h1>
+<div>
+    <h4>이름 {{user.username}} </h4>
+    <h4>이메일 {{user.email}} </h4>
+    <h4>가입날짜 {{user.date_joined}}</h4>
+    <h4>마지막 로그인 {{user.last_login}}</h4>
+
+</div>
+
+
+<button type="button" class="btn btn-primary btn-lg "><a class="text-white"
+        href="{% url 'accounts:index' %}">돌아가기</a></button>
+
+
+
+{% endblock %}
