@@ -18,7 +18,7 @@ def create(request):
         form_R = ReviewForm(request.POST)
         if form_R.is_valid():
             form_R.save(commit=False)
-            form_R.userkey = request.user
+            form_R.userkey = request.user.pk
 
             form_R.save()
 

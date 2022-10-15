@@ -15,6 +15,8 @@ maxnum = 100000  # 문제에 지정된 최대범위 100000
 
 start = n
 
+
+
 visit = [0] * (maxnum + 1)  # 방문처리 리스트와 몇 초를 사용했는지 기록을 겸해서 사용
 
 result = 0
@@ -33,7 +35,8 @@ def bfs(start):
         for j in (check - 1, check + 1, check * 2):
             if 0 <= j <= 100000 and visit[j] == 0:  # 방문을 하지않았고 0이상 100000이하라면
                 visit[j] = visit[check] + 1  # 여기 오기 위해 소모된 누적된 초를 기록 후 덱에 추가해준다.
-                q.append(j)  # 초기 4, 6 10 을 방문하기위해 1초를 사용, 이후 visit리스트를 통해 소요된 시간 표시
+                q.append(j)  # 초기 4, 6 10 을 방문하기위해 1초를 사용, 
+                # 이후 visit리스트를 통해 소요된 시간 표시
                 # 도착하는데 다른 값이 도달했다하더라도 그 값은 이미 다른  빠른 루트를 통해
                 # 도착했기에 의미가 없음,
     return print(result)

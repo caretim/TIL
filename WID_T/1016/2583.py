@@ -19,7 +19,7 @@ def bfs(y, x):
     matrix[y][x] = 1
     q = deque()
     q.append((y, x))
-    print(q)
+
     while q:
         k = q.popleft()
         for i in range(4):
@@ -47,7 +47,6 @@ for y in range(m):
 result.sort()
 
 print(len(result))
-# for r in result:
-#     print(r, end=" ")
+for r in result:
+    print(r, end=" ")
 
-print(" ".join(map(str, result)))
