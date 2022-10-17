@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>아티클 디테일페이지 </h1>
+<a href="{% url 'articles:create' %}"> 리뷰쓰기 </a>
+
+{% for article in all_data %}
+제목: <a href="{% url 'articles:detail' article.pk %} ">{{article.title}} </a>
+내용 : {{article.content}}
+평점 : {{article.grade}}
+<hr>
+{% endfor %}
+
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1> 제목 {{pick_data.title}} </h1>
+
+<p> 내용 {{pick_data.content}}</p>
+
+{% if pick_data.img %}
+
+<img src="{{pick_data.img.url}}" alt="{{pick_data.img.url}}">
+
+{%endif%}
+
+<a href="{% url 'articles:update' pick_data.pk %}"> 수정 </a>
+<a href="{% url 'articles:delete' pick_data.pk %}"> 삭제 </a>
+{% endblock %}
