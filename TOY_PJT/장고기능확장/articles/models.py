@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
+from django.contrib.auth import get_user_model
 
 # Create your models here.
 RATE_CHOICES = (
@@ -24,8 +25,9 @@ genre_table = (
 
 
 class article(models.Model):
-    userkey = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, db_column="userkey"
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    like_user = models.ManyToManyField(
+        settings.AUTH_USER_MODEL, related_name="like_articles"
     )
     title = models.CharField(max_length=30)
     content = models.TextField()
@@ -41,9 +43,20 @@ class article(models.Model):
         options={"quality": 100},
     )
 
+    def __str__(self):
+        return self.title
+
 
 class Movie(models.Model):
     movie_title = models.CharField(max_length=30)
     summary = models.TextField()
     genre = models.CharField(max_length=80, choices=genre_table)
     start_at = models.DateField()
+
+
+class Comment(models.Model):
+    userkey = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    article = models.ForeignKey(article, on_delete=models.CASCADE)
+    content = models.CharField(max_length=50)
+    create_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)

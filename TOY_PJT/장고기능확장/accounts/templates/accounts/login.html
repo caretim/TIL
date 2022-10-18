@@ -4,15 +4,17 @@
 
 {% block content%}
 
-<h1>회원가입페이지</h1>
+<h1>로그인</h1>
 
-<form action="{% url 'accounts:login' %} " method="POST">
+<form action="{% url 'accounts:login' %}" method="POST">
     {% csrf_token %}
     {%load django_bootstrap5%}
-    {%bootstrap_form form%}
-    <button class="submit">로그인</button>
+    {%bootstrap_form form %}
+    {%bootstrap_button button_type="submit" content="로그인"%}
 </form>
+
 <div>
     <button><a class="nav-link active" href="{% url 'accounts:signup' %}">회원가입</a></button>
 </div>
+
 {% endblock %}

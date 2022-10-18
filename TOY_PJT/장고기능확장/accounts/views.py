@@ -3,11 +3,12 @@ from .foms import signupForms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as as_login, logout as as_logout
 
+
 # Create your views here.
 
 
 def accounts_index(request):
-    return render(request, "accounts/index.html")
+    return render(request, "accounts/index.html/")
 
 
 def signup(request):
@@ -20,7 +21,7 @@ def signup(request):
         form = signupForms()
     context = {"form": form}
 
-    return render(request, "accounts/signup.html", context)
+    return render(request, "accounts/signup.html/", context)
 
 
 def login(request):
@@ -32,9 +33,12 @@ def login(request):
     else:
         form = AuthenticationForm()
     contetx = {"form": form}
-    return render(request, "accounts/login.html", contetx)
+    return render(request, "accounts/login.html/", contetx)
 
 
 def logout(request):
     as_logout(request)
     return redirect("articles:index")
+
+
+# def login_detail(request,pk):

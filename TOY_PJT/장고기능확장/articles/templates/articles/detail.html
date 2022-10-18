@@ -2,16 +2,29 @@
 {% block content %}
 
 
-<h1> 제목 {{pick_data.title}} </h1>
 
-<p> 내용 {{pick_data.content}}</p>
+<div class="d-flex a flex-column align-items-center">
+    <h1> 제목: {{pick_data.title}} </h1>
+    <hr>
 
-{% if pick_data.img %}
+    <p> {{pick_data.content}}</p>
 
-<img src="{{pick_data.img.url}}" alt="{{pick_data.img.url}}">
 
-{%endif%}
+    {% if pick_data.img %}
 
-<a href="{% url 'articles:update' pick_data.pk %}"> 수정 </a>
-<a href="{% url 'articles:delete' pick_data.pk %}"> 삭제 </a>
+    <img width="400" height="300" src="{{pick_data.img.url}}" alt="{{pick_data.img.url}}">
+
+    {%endif%}
+    <div>
+        <button class="btn btn-primary" type="button"><a class="nav-link active"
+                href="{% url 'articles:update' pick_data.pk %}"> 수정 </a> </button>
+        <button class="btn btn-primary" type="button"><a class="nav-link active"
+                href="{% url 'articles:delete' pick_data.pk %}"> 삭제 </a></button>
+    </div>
+</div>
+
+<hr>
+
+<h3 class="text-center">댓글</h3>
+<hr>
 {% endblock %}

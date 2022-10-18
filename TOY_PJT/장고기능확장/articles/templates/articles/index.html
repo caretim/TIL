@@ -1,15 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>아티클 디테일페이지 </h1>
-<a href="{% url 'articles:create' %}"> 리뷰쓰기 </a>
 
-{% for article in all_data %}
-제목: <a href="{% url 'articles:detail' article.pk %} ">{{article.title}} </a>
-내용 : {{article.content}}
-평점 : {{article.grade}}
-<hr>
-{% endfor %}
+<h1 class="text-center">리뷰 목록 페이지 </h1>
 
+
+<div class="d-flex row">
+    {% for article in all_data %}
+    {%if article.img%}
+    <div class="card col-4 m-4" style="width: 23rem;">
+        <img src="{{article.img.url}}" class="card-img-top" style="border-radius: 2rem;" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">제목:{{article.title}}</h5>
+            <p class="card-text">글쓴이: {{article.user}}</p>
+            <p>평점 : {{article.grade}}</p>
+            <a class="btn btn-primary" href="{% url 'articles:detail' article.pk %}">자세히보기</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="card col-4 m-4" style="width: 23rem;">
+        <img src="" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{article.title}}</h5>
+            <p class="card-text"> {{article.content}}</p>
+            <p class="card-text">글쓴이: {{article.user}}</p>
+            <p>평점 : {{article.grade}}</p>
+            <a class="btn btn-primary" href="{% url 'articles:detail' article.pk %}">자세히보기</a>
+        </div>
+    </div>
+    {%endif%}
+    {% endfor %}
+</div>
 
 
 {% endblock %}

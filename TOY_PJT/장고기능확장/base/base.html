@@ -18,15 +18,16 @@
     </style>
 </head>
 
+
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">home</a>
+        <div class="container d-flex ">
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'articles:index' %}">Home</a>
@@ -41,23 +42,25 @@
                     {% else %}
                     <a class="nav-link active" href="{% url 'accounts:login' %}">로그인</a>
                     {% endif %}
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Dropdown link
+                            리뷰글
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a class="dropdown-item" href="{% url 'articles:create' %}">리뷰작성</a></li>
+                            {% endif %}
+                            <li><a class="dropdown-item" href="{% url 'articles:index' %}">리뷰 목록</a></li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
                 </ul>
-                <div class="align-self-end">
+                <div class=" flex-e">
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
                 </div>
             </div>
         </div>
