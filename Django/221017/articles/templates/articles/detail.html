@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<H1>글 제목 : {{detail_data.title}} </H1>
+<p>내용 : {{detail_data.content}}</p>
+
+<p>작성시간{{detail_data.created_at}}</p>
+
+
+{%if detail_data.img %}
+<img width="400" height="300" src="{{detail_data.img.url}}" alt="{{detail_data.img}}">
+
+{%endif%}
+
+{%load django_bootstrap5 %}
+<div>
+    <a class="btn btn-primary" href="{% url 'articles:delete' detail_data.pk %}">삭제</a>
+    <a class="btn btn-primary" href="{% url 'articles:edit' detail_data.pk %}">수정</a>
+    <a class="btn btn-primary" href="{% url 'articles:index' %}">돌아가기</a>
+
+</div>
+
+
+
+
+{% endblock %}

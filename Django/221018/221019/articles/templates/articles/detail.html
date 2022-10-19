@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% block content %}
+<h1> 상세보기 </h1>
+
+{%if detail_data.user == request.user%}
+<div>
+    <a href="{% url 'articles:update' detail_data.pk  %}">수정</a>
+    <a href="{% url 'articles:delete' detail_data.pk  %}">삭제</a>
+</div>
+{%endif%}
+<hr>
+<h1>제목:{{detail_data.title}}</h1>
+<p>글쓴이:{{detail_data.user}}</p>
+
+<h5>내용:{{detail_data.content}}</h5>
+
+
+
+
+<hr>
+
+<h3>댓글</h3>
+{%if comment %}
+<p>총 댓글 수 :{{ comment|length }}개 </p>
+{% endif %}
+<form action="" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type=submit> 댓글작성 </button>
+</form>
+<hr>
+{% for c in comment %}
+
+<p>{{c.content}} | <span style="font-size: 10px;">{{c.user}}</span></p>
+
+{%if c.user == request.user %}
+<div>
+    <a href="{% url 'articles:delete_comment' c.pk %}">삭제</a>
+    <a href="{% url 'articles:comment_update' c.pk %}">수정</a>
+</div>
+{% endif %}
+<hr>
+{%endfor %}
+{% endblock %}

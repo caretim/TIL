@@ -50,6 +50,7 @@
                         <ul class="dropdown-menu">
                             {% if user.is_authenticated %}
                             <li><a class="dropdown-item" href="{% url 'articles:create' %}">리뷰작성</a></li>
+                            <li><a class="dropdown-item" href="{% url 'accounts:accounts_list' %}">회원목록</a></li>
                             {% endif %}
                             <li><a class="dropdown-item" href="{% url 'articles:index' %}">리뷰 목록</a></li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>

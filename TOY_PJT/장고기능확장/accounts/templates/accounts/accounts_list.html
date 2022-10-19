@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block content%}
+
+<h1>회원목록페이지</h1>
+
+
+
+{% for people in user_info %}
+
+<p>회원번호 {{people.pk}}</p>
+
+<p>유저아이디 {{people.username}}</p>
+
+<button class="btn btn-primary" type="button"><a class="nav-link active"
+        href="{% url 'accounts:accounts_detail' people.pk %}">
+        {{people.username}}님의 프로필</a></button>
+
+<hr>
+{% endfor %}
+
+
+
+
+{% endblock %}

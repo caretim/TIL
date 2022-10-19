@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> 인덱스페이지 </h1>
+<a href="{% url 'articles:create' %}">글쓰기</a>
+<hr>
+{% for post,comment_count in articles %}
+
+<a href="{% url 'articles:detail' post.pk %}">{{post.title}}</a>
+<p>글쓴이 :{{post.user}}</p>
+<p> 댓글 수 : {{comment_count|length }}</p>
+
+<hr>
+{%endfor%}
+
+
+
+{% endblock %}

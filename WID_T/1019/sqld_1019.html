@@ -1,0 +1,37 @@
+<div>
+    <H3>표준 SQL(SQL:1999)에서 테이블 생성시 참조관계를 정의하기 위해 외래키를 선언한다 <br>
+        관계형 데이터 베이스에서 자식의 FK데이터 생성시 부모테이블 데이터 입력을 허용치 않는 참조동작인 것은?</H3>
+
+    <P>1.CASECADE <br>2.RESTRICT <br>3.AUTOMATIC <br>4.DEPENDENT</P>
+</div>
+<p>45페이지 19번 </p>
+
+
+
+<div>
+    <h3>다음 중 테이블 생성시 칼럼별 생성할 수 있는 제약조건(Constraints)에 대한 설명으로 가장 부적절한것은?</h3>
+    <P>1.UNIQUE:테이블 내에서 중복되는 값이 없으며 Null입력이 불가능하다
+        <br>2.PK:주키로 테이블당 1개만 생성이 가능하다.
+        <br>3.FK: 외래키로 테이블당 여러개 생성이 가능하다.
+        <br>4.NOT NULL : 명시적으로 NULL입력을 방지한다.
+    </P>
+</div>
+<p>44페이지 10번</p>
+
+
+<DIV style="margin-top: 15rem;">
+    해설: <P>1.CASECADE = master 삭제시 child 같이 삭제
+        <br>2.RESTRICT = child필드에 pk값이 없는 경우에만 master삭제 가능
+        <br>3.AUTOMATIC = master 테이블에 Pk가 없는 경우 Master PK를 생성후 child입력
+        <br>4.DEPENDENT = master 테이블에 pk가 존재 할 때만 child 입력 허용 (정답)
+    </P>
+</DIV>
+
+<DIV style="margin-top: 15rem;">
+    해설:
+    <P>1.UNIQUE:테이블 내에서 중복되는 값이 없으며 Null입력이 불가능하다 (정답) UNIQUE:중복되는 값이 없지만 NULL입력은 가능하다.
+        <br>2.PK:주키로 테이블당 1개만 생성이 가능하다.
+        <br>3.FK: 외래키로 테이블당 여러개 생성이 가능하다.
+        <br>4.NOT NULL : 명시적으로 NULL입력을 방지한다.
+    </P>
+</DIV>

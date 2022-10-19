@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<H1> 게시판 글 쓰기 </H1>
+
+<form action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% load static %}
+    {% load django_bootstrap5 %}
+
+    {% bootstrap_form form %}
+
+    {% bootstrap_button button_type="submit" content="작성완료" %}
+</form>
+
+{% endblock %}

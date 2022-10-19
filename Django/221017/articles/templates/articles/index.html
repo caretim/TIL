@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content%}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success" role="alert">
+    {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+    {{ message }}{% endfor %}
+
+</div>
+
+
+{% endif %}
+
+<h1>게시판 인덱스 페이지</h1>
+
+<a class="btn btn-primary" href="{% url 'articles:create' %}">새글쓰기</a>
+
+<hr>
+
+<div class="d-flex row">
+    {% for article in all_date %}
+
+    {% if article.img %}
+
+    <div class="card col-4 m-5" style="width: 18rem;">
+        <img src="{{ article.img.url }}" class="card-img-top" alt="{{articles.img.url}}">
+        <div class="card-body">
+            <h5 class="card-title">{{article.title}}</h5>
+            <p class="card-text">{{article.content}}</p>
+            <a href="{% url 'articles:detail' article.pk %}" class="btn btn-primary">내용보기</a>
+        </div>
+    </div>
+
+
+    {%else%}
+    <div class="card col-4 m-5" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="{{articles.img.url}}">
+        <div class="card-body">
+            <h5 class="card-title">{{article.title}}</h5>
+            <p class="card-text">{{article.content}}</p>
+            <a href="{% url 'articles:detail' article.pk %}" class="btn btn-primary">내용보기</a>
+        </div>
+    </div>
+
+
+    {%endif%}
+
+    {% endfor %}
+</div>
+{% endblock %}

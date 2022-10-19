@@ -6,8 +6,8 @@ from .models import Review
 class ReviewForm(ModelForm):
     class Meta:
         model = Review
-        fields = "__all__"
-        # fields = ["title", "content", "movie_name", "grade", "genre" "author"]
+        # fields = "__all__"
+        fields = ["title", "content", "movie_name", "grade", "genre"]
         labels = {
             "title": "제목",
             "content": "내용",

@@ -1,27 +1,63 @@
+from collections import deque
+from copy import deepcopy
+
 n, m = map(int, input().split())
 
 dx = [0, 1, 0, -1]
 dy = [-1, 0, 1, 0]
 
-matrix = [list(map(int, input().split())) for __ in range(m)]
+commit_matrix = [list(map(int, input().split())) for __ in range(n)]
+
+origin_check = [[0]*m for __ in range(n)]
+
+# while cnt = 0일때까지,
+# 1.탐색할때 주변값이 바뀌게된다면 또 탐색하게 되므로 체크리스트 만들어줘야함,
+# 2.모두 탐색했을때까지, (result 리스트안의 인자가 없다면,) 0을 출력 , 
+# 3.탐색기능에 cnt를 넣어서 모두 녹았는지 0일 시 (1), 그리고 빙하의 갯수를 확인
+# 4. 빙하하나당 4방탐색 진행해줘야함,  그리고 탐색하는 값은, 큐에 들어가게되고 , 
 
 
-cnt = 0
-year =0
+def bfs(y,x):
+    q=deque()
+    q.append((y,x))
+    while q:
+        g = q.popleft()
+        bada=0
+        for i in range(4):
+            ny= g[0] + dy[i]
+            nx= g[1] + dx[i]
+            if 0<=ny<n and 0<=nx<m:
+                if commit_matrix[ny][nx] == 0:
+                    bada+=1
+                if commit_matrix[ny][nx] > 0 and check[ny][nx] == 0:
+                    q.append((ny,nx))
+                    check[ny][nx]=1
+        matrix[g[0]][g[1]]-= bada
+        if matrix[g[0]][g[1]] < 0:
+            matrix[g[0]][g[1]] = 0
 
 
-while cnt > 1:
-    year+=1 
-    bingsan = 0
+cnt=0      # 년수 세어주는 카운터 
+while True:
+    bingsan = 0  # 녹고나서 빙산이 몇개로 갈라지는지 카운트 
+    matrix= deepcopy(commit_matrix)
+    check = deepcopy(origin_check)
     for y in range(n):
         for x in range(m):
-            if matrix [y][x]>=1:
+            if matrix[y][x]>=1 and check[y][x]==0:
+                check[y][x]=1
                 bingsan+=1
-        
-        if bingsan > 1:
-            print(year)
-        elif bingsan == 0:
-            print ('0')
+                bfs(y,x)
+    cnt+=1
+    if bingsan > 1:
+        print (cnt-1)
+        break
+    elif bingsan == 0:
+        print ('0')
+        break
+    commit_matrix=matrix
+    
+    
     
 
 
