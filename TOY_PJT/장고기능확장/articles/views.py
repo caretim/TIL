@@ -1,6 +1,7 @@
+from email import message
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import article
-from .forms import MakeArticle
+from .models import article, Comment
+from .forms import MakeArticle, MakeComment
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
@@ -52,9 +53,24 @@ def update(request, pk):
 def detail(request, pk):
     pick_data = article.objects.get(pk=pk)
     like_count = pick_data.like_user.all()
+    all_comment = pick_data.comment_set.all()
+
+    if request.method == "POST":
+        if request.user.is_authenticated:
+            make_comeent = MakeComment(request.POST)
+            if make_comeent.is_valid():
+                form = make_comeent.save(commit=False)
+                form.userkey = request.user
+                form.article = pick_data
+                form.save()
+                return redirect("articles:detail", pk)
+    else:
+        form = MakeComment()
     context = {
         "pick_data": pick_data,
         "like_count": like_count,
+        "form": form,
+        "all_comment": all_comment,
     }
 
     return render(request, "articles/detail.html", context)
@@ -78,3 +94,11 @@ def like_user(request, pk):
             a.like_user.add(request.user)
         return redirect("articles:index")
     return redirect("accounts:login")
+
+
+def comment_delete(request, pk):
+    pick_comment = Comment.objects.get(pk=pk)
+    if pick_comment.userkey == request.user:
+        pick_comment.delete()
+
+    redirect("article:detail", pick_comment.article)

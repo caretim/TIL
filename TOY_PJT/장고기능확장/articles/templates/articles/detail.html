@@ -49,5 +49,21 @@
 <hr>
 
 <h3 class="text-center">댓글</h3>
+{% load django_bootstrap5%}
+<form action="" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" value="작성">
+</form>
 <hr>
+
+{%for comment in all_comment %}
+<div>
+    <p>{{comment.content}} |<span style="font-size: 10px;"> {{comment.userkey}}</span></p>
+    {%if comment.userkey == request.user %}
+    <a href="{% url 'articles:comment_delete' comment.pk %}">삭제</a>
+    {%endif%}
+</div>
+<hr>
+{%endfor%}
 {% endblock %}
