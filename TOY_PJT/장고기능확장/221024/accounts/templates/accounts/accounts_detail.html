@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block content%}
+
+<h1>{{user_info.username}} 님의 프로필</h1>
+
+
+<p>회원번호 {{user_info.pk}}</p>
+
+<p>유저아이디 {{user_info.username}}</p>
+
+<!-- <button class="btn btn-primary" type="button"><a class="nav-link active"
+        href="">
+        {{people.username}}님의 프로필</a></button> -->
+
+
+<h3>게시글</h3>
+<p>총 {{user_article|length}} 개
+</p>
+<hr>
+{% for post in user_article %}
+<p> <a href=" {% url 'articles:detail' post.pk %}">{{post.title}}</a></p>
+{% endfor %}
+
+
+
+{% endblock %}

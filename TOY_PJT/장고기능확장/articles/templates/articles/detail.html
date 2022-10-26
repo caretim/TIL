@@ -4,16 +4,12 @@
 
 
 <div class="d-flex a flex-column align-items-center">
-    <h1> 제목: {{pick_data.title}} <span style="font-size: 20px;"> {{pick_data.user}}</span> </h1>
+    <h1> 제목: {{pick_data.title}} <span style="font-size: 20px;"> <a
+                href="{% url 'accounts:accounts_detail' pick_data.user.pk %}">{{pick_data.user}}</a></span> </h1>
     <hr>
-
     <p> {{pick_data.content}}</p>
-
-
     {% if pick_data.img %}
-
     <img width="400" height="300" src="{{pick_data.img.url}}" alt="{{pick_data.img.url}}">
-
     {%endif%}
     <div>
         <button class="btn btn-primary" type="button"><a class="nav-link active"
@@ -23,47 +19,110 @@
     </div>
 </div>
 
-<form action="{% url 'articles:like_user' pick_data.pk %}" method="POST">
-    {% csrf_token %}
-    {% if request.user in pick_data.like_user.all %}
-    <button class="btn btn-link text-danger">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill"
-            viewBox="0 0 16 16">
-            <path
-                d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z" />
-        </svg>
-    </button>
-    <p>{{ like_count|length }}명이 좋아합니다</p>
-    {% else %}
-    <button class="btn btn-link text-danger">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart"
-            viewBox="0 0 16 16">
-            <path
-                d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-        </svg>
-    </button>
-    <p>{{ like_count|length }}명이 좋아합니다</p>
-    {% endif %}
-</form>
+
+{% if request.user in pick_data.like_user.all %}
+
+<i class="btn btn-link text-danger bi-heart-fill" id='like-Btn' data-post-id="{{ pick_data.pk }}">
+</i>
+
+{% else %}
+<i class="btn btn-link text-danger bi-heart-fill" id='like-Btn' data-post-id="{{ pick_data.pk }}">
+</i>
+
+{% endif %}
+<span id="like_count">{{ like_count|length }}</span> <span>명이 좋아합니다</span>
 
 <hr>
 
-<h3 class="text-center">댓글</h3>
-{% load django_bootstrap5%}
-<form action="" method="POST">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    <input type="submit" value="작성">
-</form>
-<hr>
+<button name="open_button" id="open_button"> 댓글보기</button>
 
-{%for comment in all_comment %}
-<div>
-    <p>{{comment.content}} |<span style="font-size: 10px;"> {{comment.userkey}}</span></p>
-    {%if comment.userkey == request.user %}
-    <a href="{% url 'articles:comment_delete' comment.pk %}">삭제</a>
-    {%endif%}
+<div name="comment_box" id="comment_box" class="hide-box">
+    <h3 class="text-center">댓글</h3>
+    {% load django_bootstrap5%}
+    <form action="" method="POST" id='commnetForm'>
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="작성">
+    </form>
+    <hr>
+
+    {%for comment in all_comment %}
+    <div id="comments">
+        <p>{{comment.content}} |<span style="font-size: 10px;"> {{comment.userkey}}</span></p>
+        {%if comment.userkey == request.user %}
+        <a href="{% url 'articles:comment_delete' comment.pk %}">삭제</a>
+        {%endif%}
+    </div>
+    <hr>
+    {%endfor%}
 </div>
-<hr>
-{%endfor%}
+
+<style>
+    .hide-box {
+        display: none;
+    }
+
+    .onbox {
+        display: block;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    const likeBtn = document.querySelector('#like-Btn')
+    const heart_icon = document.querySelector('#like-Btn')
+    likeBtn.addEventListener('click', function (event) {
+        console.log(event.target.dataset)
+        axios({
+            method: 'get',
+            url: `/${event.target.dataset.postId}/like_user/`
+        })
+            .then(response => {
+                console.log(response)
+                console.log(response.data)
+                if (response.data.is_like === true) {
+                    heart_icon.classList.add('bi-heart-fill')
+                    heart_icon.classList.remove('bi-heart')
+                } else {
+                    heart_icon.classList.add('bi-heart')
+                    event.target.classList.remove('bi-heart-fill')
+                }
+                const like_count = document.querySelector('#like_count')
+                like_count.innerText = response.data.likeCount
+
+            })
+    })
+
+    const open_comment_box = function () { document.querySelector('#comment_box').classList.toggle('onbox') }
+    const open_button = document.querySelector('#open_button')
+    open_button.addEventListener('click', open_comment_box)
+
+</script>
+<!-- 댓글 -->
+
+<script>
+    const commnetForm = document.querySelector('#commnetForm')
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+    commentForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        axios({
+            method: 'post',
+            url: `/${event.target.dataset.postId}/comment_delete/`,
+            headers: { 'X-CSRFToken': csrftoken },
+            data: new FormData(commnetForm)
+        })
+            .then(response => {
+                console.log(response.data)
+
+                const comments = document.querySelector('#comments')
+                const p = document.createElement('p')
+                p.innerText = `${response.data.userName}|  ${response.data.content}`
+                const hr = document.createElement('hr')
+                comments.append(p, hr)
+                commnetForm.reset()
+            })
+    })
+
+</script>
+
 {% endblock %}
