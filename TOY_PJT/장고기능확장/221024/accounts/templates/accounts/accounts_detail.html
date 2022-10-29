@@ -5,10 +5,28 @@
 
 <h1>{{user_info.username}} 님의 프로필</h1>
 
+<p>팔로워|{{user_info.followings.all.count}}</p>
+{% for following in user_info.followings.all %}
+{{following.username}}
+{%endfor%}
 
-<p>회원번호 {{user_info.pk}}</p>
+<p>팔로잉|{{user_info.follwers.all.count}}</p>
+{% for follower in user_info.follwers.all %}
+{{follower.username}}
+{%endfor%}
 
-<p>유저아이디 {{user_info.username}}</p>
+
+
+
+{% if request.user != user_info %}
+<a href="{% url 'accounts:follow' user_info.pk %}">
+        {% if request.user in user_info.followings.all %} 언팔로우 {%else%} 팔로우 {%endif%} </a>
+{%else%}
+{%endif%}
+
+<hr>
+
+
 
 <!-- <button class="btn btn-primary" type="button"><a class="nav-link active"
         href="">

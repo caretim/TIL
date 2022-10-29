@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .foms import signupForms
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login as as_login, logout as as_logout
+from django.contrib.auth import login as as_login, logout as as_logout, get_user_model
 from .models import Huser
 from articles.models import article, Comment
 from django.contrib.auth.decorators import login_required
@@ -66,4 +66,12 @@ def accounts_list(request):
     return render(request, "accounts/accounts_list.html", context)
 
 
-# def login_detail(request,pk):
+@login_required
+def follow(request, user_pk):
+    pick_user = get_object_or_404(get_user_model(), pk=user_pk)
+    if request.user != pick_user:
+        if request.user in pick_user.followings.all():
+            pick_user.followings.remove(request.user)
+        else:
+            pick_user.followings.add(request.user)
+    return redirect("accounts:accounts_detail", user_pk)

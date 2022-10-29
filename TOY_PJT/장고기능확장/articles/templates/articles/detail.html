@@ -39,7 +39,7 @@
 <div name="comment_box" id="comment_box" class="hide-box">
     <h3 class="text-center">댓글</h3>
     {% load django_bootstrap5%}
-    <form action="" method="POST" id='commnetForm'>
+    <form id='commnetForm' data-article-id="{{pick_data.pk}}">
         {% csrf_token %}
         {% bootstrap_form form %}
         <input type="submit" value="작성">
@@ -99,24 +99,22 @@
 
 </script>
 <!-- 댓글 -->
-
 <script>
     const commnetForm = document.querySelector('#commnetForm')
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
-    commentForm.addEventListener('submit', function (event) {
+    commnetForm.addEventListener('submit', function (event) {
         event.preventDefault();
         axios({
             method: 'post',
-            url: `/${event.target.dataset.postId}/comment_delete/`,
+            url: `/${event.target.dataset.articleId}/detail/`,
             headers: { 'X-CSRFToken': csrftoken },
             data: new FormData(commnetForm)
         })
             .then(response => {
                 console.log(response.data)
-
                 const comments = document.querySelector('#comments')
                 const p = document.createElement('p')
-                p.innerText = `${response.data.userName}|  ${response.data.content}`
+                p.innerText = `${response.data.content}|${response.data.userName}`
                 const hr = document.createElement('hr')
                 comments.append(p, hr)
                 commnetForm.reset()

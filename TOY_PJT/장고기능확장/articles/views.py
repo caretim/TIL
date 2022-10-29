@@ -89,7 +89,11 @@ def detail(request, pk):
                 form.userkey = request.user
                 form.article = pick_data
                 form.save()
-                return redirect("articles:detail", pk)
+                context = {
+                    "content": form.content,
+                    "userName": form.userkey.username,
+                }
+                return JsonResponse(context)
     else:
         form = MakeComment()
     context = {

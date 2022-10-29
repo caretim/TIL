@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content%}
+
+<h1>어카운트 인덱스페이지</h1>
+
+<button class="btn btn-primary" type="button"><a class="nav-link active" href="{% url 'accounts:signup' %}">
+                회원가입페이지</a></button>
+
+<button class="btn btn-primary" type="button"><a class="nav-link active" href="{% url 'accounts:accounts_list' %}">
+                회원목록</a></button>
+
+{% endblock %}

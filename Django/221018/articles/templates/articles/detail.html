@@ -37,9 +37,9 @@
 {%if c.user == request.user %}
 <div>
     <a href="{% url 'articles:delete_comment' c.pk %}">삭제</a>
-    <a href="{% url 'articles:comment_update' c.pk %}">수정</a>
+    <button id = ""><a href="{% url 'articles:comment_update' c.pk %}">수정</a></button>
 </div>
 {% endif %}
 <hr>
-{%endfor %}
+{% endfor %}
 {% endblock %}
