@@ -10,7 +10,7 @@ for __ in range(m):
     i,j=map(int,input().split())
     node[i].append(j)
 
-
+print(node[0])
 
 def dfs(t): #본인까지 돌아오는지 체크해야함, 
     can_list=[]
@@ -19,8 +19,7 @@ def dfs(t): #본인까지 돌아오는지 체크해야함,
     stack.append(t)
     while stack:
         k= stack.pop()
-        print(k[0])
-        for i in node[k[0]]:
+        for i in range(len(node[k])):
             if check[i]==0:
                 stack.append(i)
                 can_list.append(i)

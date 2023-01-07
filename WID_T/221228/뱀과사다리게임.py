@@ -42,4 +42,5 @@ def throw(a):
 
 
 throw(1)
+
 print(count)
