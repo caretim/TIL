@@ -18,7 +18,7 @@ n = int(input())
 r = list(map(int, input().split()))
 
 
-minimum = 1000000001
+minimum = 100000000001
 
 start, end = 0, n - 1  # 양쪽 포인트를 움직이는 기준점을 어디로 둬야할까? 적다면 계속 갱신
 #
@@ -39,6 +39,5 @@ result.sort()
 
 start = result[0][1]
 end = result[0][2]
-
 
 print(r[start], r[end])
