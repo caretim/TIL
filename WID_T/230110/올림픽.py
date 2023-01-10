@@ -1,18 +1,37 @@
 n, check = map(int, input().split())
 
-score = []
+score = [[] for __ in range(n)]
 
 # 앞등수중 같은 점수가 나올때, 또는 내가 앞나라와 점수가 같아서 동일 순위 일 때.
 
-for __ in range(n):
+# 금메달 수가 더 많은 나라
+# 금메달 수가 같으면, 은메달 수가 더 많은 나라
+# 금, 은메달 수가 모두 같으면, 동메달 수가 더 많은 나라
+
+for i in range(n):
     na, g, s, b = map(int, input().split())
-    score.append(((g * 3 + s * 2 + b), na))
+    score[i] = [g * 10000 + s * 100 + b, na]
 
-
-score.sort()
+score.sort(key=lambda x: -x[0])
 
 score[0].append(1)
-for k in range(n):
-    score[k].append(count)
-    if score[k]
-        
+
+count = 2
+tie = 0
+result = score[0][2]
+
+for k in range(1, n):
+    if score[k][0] == score[k - 1][0]:
+        score[k].append(count - 1)
+        tie += 1
+    else:
+        count = count + tie
+        score[k].append(count)
+        tie = 0
+        count += 1
+
+    if score[k][1] == check:
+        result = score[k][2]
+
+
+print(result)
