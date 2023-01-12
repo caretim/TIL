@@ -5,6 +5,7 @@ def solution(n, lost, reserve):
     for r in reserve:
         check[r] += 1
     answer = 0
+
     for c in range(1, len(check) - 1):  # 첫인덱스와 마지막인덱스 , 첫인덱스와 마지막 인덱스 사용안함, 1,78
         if check[c] == 0:
             if check[c - 1] > 1:

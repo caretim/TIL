@@ -1,5 +1,5 @@
-# n = int(input())
-n = 0
+n = int(input())
+
 dp = [0] * (n + 1)
 if n == 0:
     print(0)

@@ -19,8 +19,7 @@ def divide(k):
             k = k - dp[i - 1]
             cnt += 1
             divide(k)
-            # print(i, "제곱수")
-            # print(k, "나머지값")
+            print(k)
             break
 
 
@@ -30,8 +29,9 @@ for i in range(len(dp)):
         k = n - dp[i - 1]
         cnt += 1
         divide(k)
-        # print(i)
-        # print(k)
+        print(i)
+        print(dp[i - 1])
+        print(k)
         break
 
 print(cnt)

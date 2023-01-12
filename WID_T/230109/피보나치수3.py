@@ -1,8 +1,9 @@
 n = int(input())
-p = 1500000
+
 m = 1000000
-n = n % p
-dp = [0] * (1500001)
+p = (m // 10) * 15
+
+dp = [0] * p
 
 dp[0] = 0
 dp[1] = 1
@@ -16,22 +17,7 @@ if n < 2:
     print(dp[n])
 
 else:
-    for i in range(3, n % 1500000):
-        dp[i] = dp[i - 1] + dp[i - 2]
+    for i in range(2, p):
+        dp[i] = (dp[i - 1] + dp[i - 2]) % m
 
-
-print(dp[n] / 1000000)
-
-
-n = int(input())
-
-
-def fibo3(n):
-    a, b = 0, 1
-    for _ in range(n):
-        a, b = b % 1000000, (a + b) % 1000000
-
-    return a
-
-
-print(fibo3(n % (15 * (10**5))))
+print(dp[n % p])
