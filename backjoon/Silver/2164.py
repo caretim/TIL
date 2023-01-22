@@ -2,21 +2,24 @@ from collections import deque
 
 
 
-cards = deque()
+# cards = deque()
 
 
 n= int(input())
 
 
-for card in range(1,n+1):
-    cards.append(card)
+card = [i for i in range(1,n+1)]
 
-print(cards)
+card = deque(card)
+
+if len(card)==1:
+    print(1)
+    exit()
 
 while True:
-    cards.popleft()
-    c = cards.popleft()
-    cards.append(c)
-    if len(cards)==1:
+    card.popleft()
+    c = card.popleft()
+    card.append(c)
+    if len(card)==1:
         break
-print(cards[0])
+print(card[0])
