@@ -22,6 +22,8 @@ from collections import deque
 
 for tc in range(int(input())):
     m, n = map(int, input().split())
+    fc = [[0] * m for __ in range(n)]
+    uc = [[0] * m for __ in range(n)]
 
     matrix = [list(input()) for __ in range(n)]
 
@@ -61,8 +63,10 @@ for tc in range(int(input())):
                     for i in range(4):
                         ny, nx = y + dy[i], x + dx[i]
                         if 0 <= ny < n and 0 <= nx < m and matrix[ny][nx] == ".":
-                            matrix[ny][nx] = "*"
-                            fire_2.append((ny, nx))
+                            if fc[ny][nx] == 0:
+                                matrix[ny][nx] = "*"
+                                fire_2.append((ny, nx))
+                                fc[ny][nx] = 1
                 while user_1:
                     y, x, j = user_1.popleft()
                     for i in range(4):
@@ -72,7 +76,9 @@ for tc in range(int(input())):
                             find = 1
                             break
                         elif 0 <= ny < n and 0 <= nx < m and matrix[ny][nx] == ".":
-                            user_2.append((ny, nx, j + 1))
+                            if uc[ny][nx] == 0:
+                                user_2.append((ny, nx, j + 1))
+                                uc[ny][nx] = 1
             else:
                 while fire_2:
                     if find == 1:
@@ -81,8 +87,10 @@ for tc in range(int(input())):
                     for i in range(4):
                         ny, nx = y + dy[i], x + dx[i]
                         if 0 <= ny < n and 0 <= nx < m and matrix[ny][nx] == ".":
-                            matrix[ny][nx] = "*"
-                            fire_1.append((ny, nx))
+                            if fc[ny][nx] == 0:
+                                matrix[ny][nx] = "*"
+                                fire_1.append((ny, nx))
+                                fc[ny][nx] = 1
                 while user_2:
                     y, x, j = user_2.popleft()
                     for i in range(4):
@@ -91,7 +99,9 @@ for tc in range(int(input())):
                             result = j + 1
                             find = 1
                         elif 0 <= ny < n and 0 <= nx < m and matrix[ny][nx] == ".":
-                            user_1.append((ny, nx, j + 1))
+                            if uc[ny][nx] == 0:
+                                user_1.append((ny, nx, j + 1))
+                                uc[ny][nx] = 1
             # print(fire_1, fire_2, user_1, user_2)
             count += 1
 
