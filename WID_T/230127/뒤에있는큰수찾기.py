@@ -11,21 +11,31 @@
 # print(result)
 numbers = [2, 3, 3, 5]
 
-result = []
-check_num = numbers[0]
 
-count = 0
-for i in range(len(numbers)):
-    count += 1
-    if numbers[i] > check_num:
-        for __ in range(count):
+def solution(numbers):
+    nm = max(numbers)
+    result = []
+    check_num = numbers[0]
+
+    count = 0
+    for i in range(1, len(numbers)):
+        count += 1
+        if nm == numbers[i]:
             result.append(numbers[i])
-            # print(numbers[i])
-        count = 0
-    check_num = numbers[i]
+
+        if numbers[i] > check_num:
+            for __ in range(count):
+                result.append(numbers[i])
+                # print(numbers[i])
+            count = 0
+        check_num = numbers[i]
+
+    count = 1
+
+    for __ in range(count):
+        result.append(-1)
+
+    return result
 
 
-for __ in range(count):
-    result.append(-1)
-
-print(result)
+print(solution(numbers))
