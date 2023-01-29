@@ -10,6 +10,7 @@
 
 # print(result)
 numbers = [2, 3, 3, 5]
+# 내림차순일때 
 
 
 def solution(numbers):
