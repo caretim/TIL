@@ -58,8 +58,6 @@ def solution(n, k):
                     except:
                             answer+=1
             zero =i
-                    
-                    
     return answer
 
 print(solution(437674,3))

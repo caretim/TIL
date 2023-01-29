@@ -25,8 +25,6 @@ def Horizon(y, x):
                     check[y][nx] = 1
                     result -= 1
                     stack.append(nx)
-
-
 def vertical(y, x):
     global result
     matrix[y][x] = 0

@@ -42,4 +42,5 @@ if len(result) == 0:
 else:
     print(max(result))
 
-print(matrix)
+
+

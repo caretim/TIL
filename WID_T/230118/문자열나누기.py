@@ -26,7 +26,6 @@ def solution(s):
         print(1)
         d_char = ""
         first = s[0]
-
         same = 0
         difer = 0
         for i in range(len(s)):

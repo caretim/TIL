@@ -62,8 +62,8 @@ def bfs(x, y, z):
                 attack.append((nx, ny, nz, a + 1))
                 print(nx, ny, nz, a + 1)
 
-
 bfs(scv[0], scv[1], scv[2])
+
 # # scv가 3마리가 아니라면 ? 순서에따라 카운트 돌아가면서
 # while True:
 #     scv.sort(reverse=True)

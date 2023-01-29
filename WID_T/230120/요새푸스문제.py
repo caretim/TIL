@@ -22,5 +22,5 @@ while stack:
     for i in del_list:
         stack.remove(i)
 
-
+# ^^ 갱장히 화가나따.. 띄어쓰기 붙여줘야했던거냐고 ㅠㅠ 
 print("<", ", ".join(result), ">", sep="")

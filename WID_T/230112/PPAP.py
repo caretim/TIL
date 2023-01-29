@@ -42,7 +42,6 @@ for i in words:
         for __ in range(3):
             result.pop()
 
-print(result)
 
 k = "".join(result)
 if "PPAP" == k or "P" == k:
