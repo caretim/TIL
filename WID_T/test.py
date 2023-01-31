@@ -1,2 +1,6 @@
-for i in range(4, 5):
-    print(i)
+n = 3
+
+n = 11 if n == 0 else n
+
+
+print(n)
