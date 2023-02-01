@@ -1,4 +1,4 @@
-
+from collections import deque
 
 
 ingredient=[2, 1, 1, 2, 3, 1, 2, 3, 1]
