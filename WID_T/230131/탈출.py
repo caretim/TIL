@@ -52,7 +52,7 @@ def bfs():
                     end_q.append((ny,nx,s+1)) # 흠..시퀀스를 넣어줄까? 안넣어도 될거같긴한데, 전체 카운트를 올릴까 
     if find==1:
         return
-    elif len(end_q)>0:
+    elif len(end_q)>0: # 고슴도치가 이동 할 곳이 없을 경우
         bfs()
 
 for y in range(n):
