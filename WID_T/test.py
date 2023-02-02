@@ -1,6 +1,7 @@
-n = 3
+n = "WrongAnswer"
 
-n = 11 if n == 0 else n
-
-
-print(n)
+for i in range(len(n)):
+    if ord(n[i]) > 96:
+        print(n[i].upper(), end="")
+    else:
+        print(n[i].lower(), end="")
