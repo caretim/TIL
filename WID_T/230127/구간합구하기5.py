@@ -1,6 +1,6 @@
-# import sys
+import sys
 
-# input = sys.stdin.readline
+input = sys.stdin.readline
 
 # n, m = map(int, input().split())
 
@@ -21,10 +21,9 @@
 
 n, m = map(int, input().split())
 dp = [[0] * (n + 1) for __ in range(n + 1)]
-result = []
-for i in range(n):
-    a = list(map(int, input().split()))
-    result.append(a)
+
+result = [list(map(int, input().split())) for __ in range(n)]
+
 
 for i in range(1, n + 1):
     for j in range(1, n + 1):

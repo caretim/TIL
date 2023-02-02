@@ -1,4 +1,4 @@
-n = "WrongAnswer"
+n = input()
 
 for i in range(len(n)):
     if ord(n[i]) > 96:

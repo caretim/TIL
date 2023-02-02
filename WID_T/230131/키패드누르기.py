@@ -56,8 +56,7 @@ def solution(numbers, hand):
                     ry, rx = cy, cx
                 else:
                     answer += "L"
-                    ly, lx = ly, lx
-
+                    ly, lx = cy, cx
             elif Left_range < right_range:
                 answer += "L"
                 print(ly, lx, ry, rx, cy, cx, k)
