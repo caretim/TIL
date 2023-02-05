@@ -1,7 +1,8 @@
-n = input()
+n = int(input())
+j = int(input())
 
-for i in range(len(n)):
-    if ord(n[i]) > 96:
-        print(n[i].upper(), end="")
-    else:
-        print(n[i].lower(), end="")
+if n < j + 1:
+    n = j + 1
+
+
+print(j, n)
