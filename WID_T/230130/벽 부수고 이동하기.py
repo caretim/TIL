@@ -81,7 +81,7 @@ min_cnt = 1000000
 cnt = 0
 
 while que:
-    cnt += 1  # 반복될때마다 cnt +1
+    cnt += 1  # 반복될때마다 cnt +1 동일한 카운트 값만 들어간 리스트 인자들만 들어가는 구조로 되어있음 오..신기한데?
     temp = []
     for r, c in que:
         if r == N - 1 and c == M - 1:
@@ -106,7 +106,7 @@ while que:
                     )  # 벽을 뚫었다면 1로 방문처리, if문 숫자비교로 일반방문 벽뚫방문 비교해주는 방법 기억하자
 
     else:
-        que = temp
+        que = temp  # 오... for문이 모두 진행되었을때 break가 걸렸는지 안걸렸는지 확인해주는 for-else문법
         continue
 
     break
