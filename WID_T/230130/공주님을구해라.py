@@ -10,7 +10,6 @@ n, m, t = map(int, input().split())
 matrix = [list(map(int, input().split())) for __ in range(n)]
 
 check = [[0] * m for __ in range(n)]
-wall_check = [[0] * m for __ in range(n)]
 
 result = 100000000
 g_result = 100000000
