@@ -24,12 +24,17 @@ for h in range(n):
     dict ={}
     for i in range(m):
         if arr[h][i] not in dict:
-            dict[(arr[h][i])]=i
+            dict[(arr[h][i])]=[i] # 숫자가 바로 바뀌게 된다면 다음값이 더 큰경우인데 무시하고 넘어가버림
         else:
-            rg =i-dict[(arr[h][i])]
-            k = find(i,dict[(arr[h][i])],rg,h,arr[h][i])
-            if k >0:
-                result.append(k)
+            tr = []
+            for v in  dict[(arr[h][i])]:
+                tr.append(v)
+                rg =i-v
+                k = find(i,v,rg,h,arr[h][i])
+                if k >0:
+                    result.append(k)
+            tr.append(i)
+            dict[(arr[h][i])]=tr
 
 if len(result)==0:
     print(1)
