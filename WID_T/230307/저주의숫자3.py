@@ -8,4 +8,4 @@ def solution(n):
     print(num)
     return answer
 
-print(solution(int(input())))
+print(solution(int(input()))) 
