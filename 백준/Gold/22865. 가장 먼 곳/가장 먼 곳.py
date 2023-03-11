@@ -1,6 +1,8 @@
 import sys
 import heapq
 
+input = sys.stdin.readline
+
 INF = sys.maxsize
 
 n = int(input())  # 땅의 개수
@@ -25,7 +27,7 @@ heapq.heappush(q, (0, c))
 arr[a] = 0
 arr[b] = 0
 arr[c] = 0
-
+mn = 0
 while q:
     w, node = heapq.heappop(q)
     if arr[node] < w:
@@ -34,6 +36,8 @@ while q:
         dist = w + wei
         if arr[next_node] > dist:
             arr[next_node] = dist
+            if mn < dist:
+                mn = dist
             heapq.heappush(q, (dist, next_node))
 
 mn = max(arr[1:])  # 시간 최소로 하려면?  딕셔너리로 값지정하고 밸류 기준으로 키 뽑아내기?
