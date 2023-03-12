@@ -1,28 +1,62 @@
-import sys
-input = sys.stdin.readline
+from collections import deque
 
-n, m = map(int,input().split())
-n_cops,*cops = list(map(int,input().split()))
+T = int(input())
+ans = []
+for b in range(T):
+  cnt = 0; sta = False
+  arr = list(input())
+  n = int(input())
+  string = input()
+  if n > 0:
+    string = string.replace('[', "").replace("]", "")
+    str_list = list(map(int, string.split(',')))
+  else: str_list = []
+  ans_list = deque(str_list)
+  func = [0]*(400001)
+  func[0] = arr[0]
+  k = 0
+  
+  for i in range(len(arr)-1):
+    if arr[i] == arr[i+1]:
+      func[k] = func[k] + arr[i+1]
+    else:
+      k += 1
+      func[k] = arr[i+1]
 
-print(n_cops,cops)
+  for i in func:
+    if i == 0:
+      if cnt % 2 == 0:
+        ans.append("[" + str(','.join(map(str,ans_list))) + "]")
+        break
+      else:
+        ans_list.reverse()
+        ans.append("[" + str(','.join(map(str,ans_list))) + "]")
+        break
+    if 'R' in i:
+      cnt += len(i)
+    if 'D' in i:
+      if cnt % 2 == 0:
+        for j in range(len(i)):
+          if len(ans_list) == 0:
+            ans.append('error')
+            break
+          else:
+            ans_list.popleft()
+            if j == len(i)-1 and len(ans_list) == 0:
+              ans.append("[" + str(','.join(map(str,ans_list))) + "]")
+              break
+        if len(ans_list) == 0:break
+      else:
+        for j in range(len(i)):
+          if len(ans_list) == 0:
+            ans.append('error')
+            break
+          else: 
+            ans_list.pop()
+            if j == len(i)-1 and len(ans_list) == 0:
+              ans.append("[" + str(','.join(map(str,ans_list))) + "]")
+              break
+        if len(ans_list) == 0: break
 
-cops = set(cops)
-parties = []
-available = [True] * m
-for _ in range(m):
-    _, *attendies = map(int,input().split())
-    parties.append(set(attendies))
-
-flag = True
-while flag:
-    flag = False
-    for i in range(m):
-        # party가 거짓말 가능성 있는데 cops과 member가 겹치면 not available
-        # 그리고 그 파티의 member들은 cops에 합류
-        # 이 변화로 다른 파티에도 영향 있을 수 있으니 flag = True로 다시 loop 돌기
-        if available[i] and cops & parties[i]:
-            available[i] = False
-            flag = True
-            cops = cops | parties[i]
-            print(cops)
-print(sum(available))
+for i in range(len(ans)):
+  print(ans[i])
