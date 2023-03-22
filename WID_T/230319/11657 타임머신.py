@@ -29,7 +29,7 @@ def bellman_ford(start):
                 and distance[next_node] > node_cost + distance[old_node]
             ):
                 distance[next_node] = node_cost + distance[old_node]
-                if i == n - 1:
+                if i == n:
                     return True
     return False
 
@@ -38,9 +38,8 @@ negative_cycle = bellman_ford(1)
 
 if negative_cycle:
     print(-1)
-
 else:
-    for i in range(2, v + 1):
+    for i in range(2, n + 1):
         if distance[i] == INF:
             print(-1)
         else:
