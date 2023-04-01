@@ -16,4 +16,4 @@ for __ in range(n):
         else:
             print(0)
     else:
-        heapq.heappush(x, inp * -1, inp)
+        heapq.heappush(x, (inp*-1 , inp))

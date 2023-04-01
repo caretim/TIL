@@ -54,7 +54,8 @@ def bfs(n, m):
 bfs(n, m)
 # print(result, g_result)
 result = min(result, g_result)
-print(result if result < t else "Fail")
+print(result if result <= t else "Fail")
+
 
 
 # for k in check:

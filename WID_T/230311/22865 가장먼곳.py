@@ -12,12 +12,11 @@ check = [0] * n
 
 arr = [INF] * (n + 1)
 
-arr[0] = -1
 m = int(input())
 graph = [[] for __ in range(m)]
 
 for __ in range(m):
-    u, v, w = map(int, input().split())  # 시작노드 , 도착노드 , 가중치
+    u, v, w = map(int, input().split())  # 시작노드 , 도착노드 , 가중치 # 
     graph[u].append((w, v))
     graph[v].append((w, u))
 
