@@ -31,46 +31,58 @@ for y in range(n):
 #             continue
 #         if matrix[y][x] != 0:
 #             fish[(matrix[y][x])].append((y, x))
-# sorted(eat_range,key =lambda x: x1:x2:)
 
 
-def hunting(y, x):
+# 물고기 최단거리 찾기,
+def hunting(y, x ,baby_shark):
     check = [[0] * n for __ in range(n)]
-    baby_shark = 2  # 상어크기
-    eat_fish = 0  # 먹은 물고기 수
-    result = 0
+    eat=[]
     q = deque()
-    q.append((y, x, 2, 0))
-    check[y][x] = 1
+    q.append((y, x, 0))
+    check[y][x] = 4
     while q:
-        y, x, r, count = q.popleft()
+        y, x, count = q.popleft()
         count += 1
         for i in range(4):
             ny, nx = dy[i] + y, dx[i] + x
             if 0 <= ny < n and 0 <= nx < n and check[ny][nx] == 0:
-                if (
-                    matrix[ny][nx] == 0 or matrix[ny][nx] == baby_shark
-                ):  # 지나가는 경로가 0이거나 크기가 같을 때,
+                if (matrix[ny][nx] == 0 or matrix[ny][nx] == baby_shark):  # 지나가는 경로가 0이거나 크기가 같을 때, # 왜 그냥 지나가버리지?
                     check[ny][nx] = 1
-                    q.append((ny, nx, r, count))
-                elif (
-                    0 < matrix[ny][nx] < baby_shark
-                    and check[ny][nx] == 0  # 자기보다 낮을 물고기 먹었을때,
-                ):  # 0이 아닌 물고기일때.
-                    eat_fish += 1  # 먹은 물고기 +1
-                    matrix[ny][nx] = 0  # 물고기 지워주기
-                    check = [[0] * n for __ in range(n)]
-                    if eat_fish == baby_shark:  # 만약 먹은 물고기 수가 크기와 같다면 크기 증가 (체크리스트 초기화)
-                        baby_shark += 1
-                        eat_fish = 0
-                    q = deque()
-                    result = count
-                    q.append((ny, nx, r + 1, count))
-    return result
+                    q.append((ny, nx, count))
+                elif ( 0 < matrix[ny][nx] < baby_shark): # 자기보다 낮을 물고기 먹었을때, 
+                    q.append((ny, nx, count))
+                    check[ny][nx]=1
+                    eat.append((ny,nx,count))
+     # 큐사용안하니, 역순정렬 
+    return sorted(eat,key = lambda x : (-x[2], -x[0],-x[1])) # 람다 순서 넣는법 기억하기, 
 
+baby_shark = 2  # 상어크기
+eat_fish = 0  # 먹은 물고기 수
+result = 0
+
+y,x= sy,sx
+
+while True:
+    e = hunting(y,x,baby_shark)
+    print(e)
+    if len(e)==0:
+        break
+    ey ,ex ,dist = e.pop() 
+    result+=dist
+    matrix[ey][ex],matrix[y][x]=0,0
+    y,x = ey,ex
+    eat_fish+=1
+    if eat_fish==baby_shark:
+        baby_shark+=1
+        eat_fish=0
+
+print(result)
+
+    
 
 # 먹을 물고기 찾는 함수 ,
+# 현재 위치에서 물고기 담은 리스트에서 각 물고기 크기 확인, 
 # 물고기를 찾아가는 함수,
 # 두개로 진행,
 
-print(hunting(sy, sx))
+

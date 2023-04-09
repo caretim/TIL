@@ -43,11 +43,9 @@ def snake(y,x):
                 d=3
             elif d>3:
                 d=0
-        count+=1
+        count+=1 # 위치 바뀌기전에 카운터 올라가면 안됨,
         ny,nx = y+move[d][0] , x+move[d][1]
         if 0<=ny<n and 0<=nx<n:
-            for m in matrix:
-                print(m)
             if matrix[ny][nx]==1: # 꼬리 마주쳤을때 
                 return count
             elif matrix[ny][nx]==0: # 빈공간 

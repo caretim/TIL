@@ -1,7 +1,19 @@
+oper=1
+arr=[]
 
-import sys
-input= sys.stdin.readline
-for __ in range(int(input().rstrip())):
-    a,b = map(int,input().split())
-    result = str(a**b) 
-    print(result[-1])
+for o in oper:
+    r = arr[0]
+    for k in range(len(arr)-1):
+        if o[k]=='+':
+            r += arr[k+1]
+        elif o[k]=='-':
+            r -= arr[k+1]
+        elif o[k]=='*':
+            r *= arr[k+1]
+        else:
+            if r//arr[k+1] <0:
+                r = -(-r//arr[k+1])
+            else:
+                r = r//arr[k+1]
+
+    result.append(r)

@@ -40,9 +40,7 @@ def bfs(n, m):
             if 0 <= ny < n and 0 <= nx < m and check[ny][nx] == 0:
                 if matrix[ny][nx] == 1 and b == 0:
                     q.append((ny, nx, b + 1, c + 1))
-                    check[ny][
-                        nx
-                    ] = 1  # 벽부수고 방문한거랑 벽 안부수고 방문한거랑 확인해야함 어떻게 확인시켜주지? 조건분기시킬까?
+                    check[ny][nx] = 1  # 벽부수고 방문한거랑 벽 안부수고 방문한거랑 확인해야함 어떻게 확인시켜주지? 조건분기시킬까?
                 elif matrix[ny][nx] == 0 and b == 1:  # 벽부수나서 0이동할때
                     if wall_check[ny][nx] == 0:
                         q.append((ny, nx, b, c + 1))
