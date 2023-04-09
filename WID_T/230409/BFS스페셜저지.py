@@ -76,38 +76,50 @@ for __ in range(n - 1):
 check = list(map(int, input().split()))
 check = deque(check)
 q1 = deque()
-q2 = []
 q1.append(1)
-if check.popleft() != 1:
+if check.popleft() != 1: # 맨처음 시작점 1부터 확인 후 q1d에 1 넣어준다.
     print(0)
     exit()
 result = 1  # 답 1 설정,
-visit = [0] * (n + 1)
-visit[1] = 1
-while True:
-    count = 0
-    if result == 0:
-        break
+visit = [0] * (n + 1) # 방문리스트 설정, 
+visit[1] = 1 # 최초 1시작이며 방문체크, 
+
+def same(q1): # bfs로 다음번에 들어갈 리스트 번호 체크, 
+    q= deque(q1)
+    global visit
     check_list = []
-    if len(q1) == 0:
+    while q:
+        x = q.popleft()
+        for i in arr[x]:
+            if visit[i] == 0:
+                check_list.append(i)
+                visit[i] = 1
+    print(sorted(check_list),sorted(arr[1:len(check_list)]))
+    if  sorted(check_list) == sorted(arr[1:len(check_list)]):
+        check_list = arr[len(check_list):]
+    else:
+        check_list="fail"
+    return check_list
+
+
+while check:
+    check_list1 = same(q1)
+    if check_list1=="fail":
+        result=0
         break
-    q = q1.popleft()
-    for i in arr[q]:
-        if visit[i] == 0:
-            q2.append(i)
-            visit[i] = 1
-            c = check.popleft()
-            check_list.append(c)
-            count += 1
-    q2.sort()  # 방문리스트 둘 다 정렬 후 각각 비교 , 갯수가 틀리거나 수가 다르다면
-    check_list.sort()
-    for ii in range(count):
-        try:
-            q2[ii] == check_list[ii]
-        except:
-            result = 0  # 값이 틀렸을때
-            break
-    q1 = deque(q2)
-    q2 = []
+    # if len(check_list1)==0:
+    check_list2 =[]
+    for __ in range(len(check_list1)):
+       check.popleft()
+    q1 = check_list2
 
 print(result)
+    
+
+
+
+
+
+# 먼저. 1에서 연결된 노드 2,3체크해서 팝, 순서대로 2,3 2번노드 숫자 빼서 체크, 3번노드 숫자빼서 체크, q 비었으면
+
+# 체크한숫자들 q에 다시 넣어주기, 
