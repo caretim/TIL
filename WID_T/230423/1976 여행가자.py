@@ -1,18 +1,18 @@
 N = int(input())  # 도시의 수
 M = int(input())  # 여행계획 도시의 수
 
-graph = [[] for __ in range(N)]
+graph = [set() for __ in range(N + 1)]
 
-for i in range(N):
+for i in range(1, N + 1):
     bridge = list(map(int, input().split()))
     for j in range(N):
         if bridge[j] == 1:
-            graph[i].append(j)
-            graph[j].append(i)
+            graph[i].add(j + 1)
+            graph[j + 1].add(i)
 
 trips = list(map(int, input().split()))
 
-result = "Yes"
+result = "YES"
 
 
 def bfs(t, next):
@@ -33,9 +33,10 @@ def bfs(t, next):
     return check
 
 
-for t in range(len(trips), 1, -1):
+for t in range(len(trips) - 1, 0, -1):
     if bfs(trips[t], trips[t - 1]) == False:
-        result = "No"
+        result = "NO"
         break
+
 
 print(result)
