@@ -1,8 +1,18 @@
-while True:
-    a, b = map(int, input().split())
-    if a + b == 0:
-        break
-    if a > b:
-        print("Yes")
+n = str(input())
+s = int(input())
+
+
+n_char = n[:-2]
+
+
+for i in range(0, 100):
+    i = str(i)
+    if len(i) == 1:
+        char = "0" + i
     else:
-        print("No")
+        char = i
+
+    if int(n_char + char) % s == 0:
+        # print(n_char, char)
+        print(char)
+        break
