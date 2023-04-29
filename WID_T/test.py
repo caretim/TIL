@@ -1,18 +1,9 @@
-n = str(input())
-s = int(input())
-
-
-n_char = n[:-2]
-
-
-for i in range(0, 100):
-    i = str(i)
-    if len(i) == 1:
-        char = "0" + i
-    else:
-        char = i
-
-    if int(n_char + char) % s == 0:
-        # print(n_char, char)
-        print(char)
-        break
+x=int(input()) 
+d=[0]*(x+1) # 1-based
+for i in range(2,x+1): 
+    d[i]=d[i-1]+1 
+    if i%2==0: 
+        d[i]=min(d[i],d[i//2]+1)
+    if i%3==0: 
+        d[i]=min(d[i],d[i//3]+1)
+print(d[x])
