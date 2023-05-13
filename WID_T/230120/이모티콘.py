@@ -10,34 +10,51 @@
 # 영선이가 S개의 이모티콘을 화면에 만드는데 걸리는 시간의 최솟값을 구하는 프로그램을 작성하시오.
 
 
-
 # 화면에 있는 이모티콘을 모두 복사해서 클립보드에 저장한다. (이전클립보드내용 초기화 ,빈상태에서 불가능 )
 # 클립보드에 있는 모든 이모티콘을 화면에 붙여넣기 한다.
-# 화면에 있는 이모티콘 중 하나를 삭제한다. 
+# 화면에 있는 이모티콘 중 하나를 삭제한다.
 
-# 2개를 만들기위해서는 1개를 복사 (+1) 클립보드(1개)를 붙여넣기(+2) = 총 2개  2초소요 
+# 2개를 만들기위해서는 1개를 복사 (+1) 클립보드(1개)를 붙여넣기(+2) = 총 2개  2초소요
 
-# 5개 만들기 붙여넣기 
+# 5개 만들기 붙여넣기
 
-n= int(input())
+# 이모티콘 클립복사해서 넣기?
 
-node = [0]*n
+# 복사하고 붙여넣고 빼주고 시행, 이미 전에 진행됬다면 패스 cnt인자 같이 넣어줄까?
 
-check = [0]*n
+from collections import deque
 
-
-temp = 1
-emote =0
-
-r = temp=emote,temp=temp+emote,emote-=1
-
-for k in range(3):
-    if k==0:
-        temp=emote
-    elif k==1:
-        temp=temp
-    elif k==2:
-        emote-=1
+n = int(input())
 
 
+check = [[0] * 1001 for _ in range(1001)]
 
+
+def sq(k, emo, clip):
+    if k == 0:
+        clip = emo
+    elif k == 1:
+        emo += clip
+    elif k == 2:
+        emo -= 1
+    return emo, clip
+
+
+q = deque()
+q.append((1, 0, 0))
+check[1][0] = 1
+
+while q:
+    emo, clip, cnt = q.popleft()
+    if emo == n:
+        print(cnt)
+        break
+    for k in range(3):
+        emote, ce = sq(k, emo, clip)
+        if ce == 0:
+            continue
+        if emote < 0 or emote > 1000 or clip > 1000:
+            continue
+        if check[emote][ce] == 0:
+            check[emote][ce] = 1
+            q.append((emote, ce, cnt + 1))
