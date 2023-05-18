@@ -46,15 +46,18 @@ for _ in range(T):
         for i in range(8):
             ny, nx = y + directions[i][0], x + directions[i][1]
             if 0 <= nx < h and 0 <= ny < w and matrix[nx][ny] >= 0:
-                d = max(matrix[nx][ny], matrix[x][y]) - min(
-                    matrix[nx][ny], matrix[x][y]
+                # d = max(matrix[nx][ny], matrix[x][y]) - min(
+                #     matrix[nx][ny], matrix[x][y]
+                # )
+                d = max(matrix[x][y], matrix[nx][ny]) - min(
+                    matrix[x][y], matrix[nx][ny]
                 )
 
                 # if d == 0:
                 #     cur_c = 1
                 # else:
                 #     cur_c = (d + 1) ** 2
-                cur_c  = 1 if d == 0 else (d + 1) ** 2  # d == 0이면 1 아니라면 계산식 적용
+                cur_c = 1 if d == 0 else (d + 1) ** 2  # d == 0이면 1 아니라면 계산식 적용
                 nc = cur_c + cost
 
                 if visited[nx][ny] > nc:
