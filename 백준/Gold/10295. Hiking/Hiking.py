@@ -1,70 +1,60 @@
-from heapq import heappush, heappop
 import sys
 
+import heapq
 
-input = sys.stdin.readline
 INF = sys.maxsize
-
-# dx = [-1, -1, -1, 0, 0, 1, 1, 1]  #
-# dy = [-1, 0, 1, -1, 1, -1, 0, 1]
+input = sys.stdin.readline
 
 directions = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
 
-T = int(input())
 
-for _ in range(T):
-    w, h = map(int, input().split())  # w : 너비 / h : 높이
-    matrix_temp = [list(input().strip()) for _ in range(h)]  # 높이만큼 input을 반복
-    a, b = map(int, input().split())  # a(h) : 높이 / b(w) : 너비 -
-    matrix = [[0 for _ in range(w)] for _ in range(h)]
-
-    mx, my = 0, 0  # 최고 높이를 찾기 위한 변수
-    for i in range(h):
-        for j in range(w):
-            if matrix_temp[i][j] != "#":
-                matrix[i][j] = int(matrix_temp[i][j])
-                if matrix[i][j] > matrix[mx][my]:
-                    mx, my = i, j
-            elif matrix_temp[i][j] == "#":
-                matrix[i][j] = -1
-
-    # if not matrix[a][b]:
-    #     print("NO")
-    #     continue
-
-    visited = [[INF for _ in range(w)] for _ in range(h)]
-    visited[a][b] = 0
-    hq = []
-    heappush(hq, (0, a, b))
-
-    while hq:
-        cost, x, y = heappop(hq)
-
-        if cost > visited[x][y]:
+def dijkstra(sx, sy, ex, ey):
+    check = [[INF] * (M) for __ in range(N)]
+    check[sx][sy] = 0
+    q = []
+    heapq.heappush(q, (0, sx, sy))
+    while q:
+        w, x, y = heapq.heappop(q)
+        if check[x][y] < w:
             continue
-
         for i in range(8):
             ny, nx = y + directions[i][0], x + directions[i][1]
-            if 0 <= nx < h and 0 <= ny < w and matrix[nx][ny] >= 0:
-                # d = max(matrix[nx][ny], matrix[x][y]) - min(
-                #     matrix[nx][ny], matrix[x][y]
-                # )
-                d = max(matrix[x][y], matrix[nx][ny]) - min(
-                    matrix[x][y], matrix[nx][ny]
+            if 0 <= ny < N and 0 <= nx < M and matrix[nx][ny] >= 0:
+                d = abs(
+                    max(matrix[x][y], matrix[nx][ny])
+                    - min(matrix[x][y], matrix[nx][ny])
                 )
+                cost = (d + 1) ** 2  # d == 0이면 1 아니라면 계산식 적용
+                if check[nx][ny] > w + cost:
+                    check[nx][ny] = w + cost
+                    heapq.heappush(q, (w + cost, nx, ny))
+    return check[ex][ey]
 
-                # if d == 0:
-                #     cur_c = 1
-                # else:
-                #     cur_c = (d + 1) ** 2
-                cur_c = 1 if d == 0 else (d + 1) ** 2  # d == 0이면 1 아니라면 계산식 적용
-                nc = cur_c + cost
 
-                if visited[nx][ny] > nc:
-                    visited[nx][ny] = nc
-                    heappush(hq, (nc, nx, ny))
+for i in range(int(input())):
+    N, M = map(int, input().split())
+    s_matrix = [list(input().rstrip()) for __ in range(N)]
+    matrix = [[0] * (M) for __ in range(N)]
+    sx, sy = map(int, input().split())
 
-    if visited[mx][my] != INF:
-        print(visited[mx][my])
-    else:
+    max_num = 0
+    ex, ey = 0, 0
+
+    for y in range(N):
+        for x in range(M):
+            if s_matrix[x][y] == "#":
+                matrix[x][y] = -1
+            else:
+                matrix[x][y] = int(s_matrix[x][y])
+                if matrix[x][y] > max_num:
+                    max_num = matrix[x][y]
+                    ey, ex = y, x
+    if s_matrix[sx][sy] == "#":
         print("NO")
+        continue
+
+    r = dijkstra(sx, sy, ex, ey)
+    if r == INF:
+        print("NO")
+    else:
+        print(r)
