@@ -50,11 +50,11 @@ for _ in range(T):
                     matrix[nx][ny], matrix[x][y]
                 )
 
-                if d == 0:
-                    cur_c = 1
-                else:
-                    cur_c = (d + 1) ** 2
-
+                # if d == 0:
+                #     cur_c = 1
+                # else:
+                #     cur_c = (d + 1) ** 2
+                cur_c  = 1 if d == 0 else (d + 1) ** 2  # d == 0이면 1 아니라면 계산식 적용
                 nc = cur_c + cost
 
                 if visited[nx][ny] > nc:
