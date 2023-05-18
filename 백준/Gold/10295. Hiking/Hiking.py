@@ -5,8 +5,10 @@ import sys
 input = sys.stdin.readline
 INF = sys.maxsize
 
-dx = [-1, -1, -1, 0, 0, 1, 1, 1]  #
-dy = [-1, 0, 1, -1, 1, -1, 0, 1]
+# dx = [-1, -1, -1, 0, 0, 1, 1, 1]  #
+# dy = [-1, 0, 1, -1, 1, -1, 0, 1]
+
+directions = [(-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1)]
 
 T = int(input())
 
@@ -42,8 +44,7 @@ for _ in range(T):
             continue
 
         for i in range(8):
-            nx = x + dx[i]
-            ny = y + dy[i]
+            ny, nx = y + directions[i][0], x + directions[i][1]
             if 0 <= nx < h and 0 <= ny < w and matrix[nx][ny] >= 0:
                 d = max(matrix[nx][ny], matrix[x][y]) - min(
                     matrix[nx][ny], matrix[x][y]
@@ -64,4 +65,3 @@ for _ in range(T):
         print(visited[mx][my])
     else:
         print("NO")
-
