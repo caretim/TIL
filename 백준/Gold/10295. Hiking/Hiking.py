@@ -33,10 +33,10 @@ for _ in range(T):
     visited = [[INF for _ in range(w)] for _ in range(h)]
     visited[a][b] = 0
     hq = []
-    heappush(hq, (a, b, 0))
+    heappush(hq, (0, a, b))
 
     while hq:
-        x, y, cost = heappop(hq)
+        cost, x, y = heappop(hq)
 
         if cost > visited[x][y]:
             continue
@@ -53,15 +53,15 @@ for _ in range(T):
                     cur_c = 1
                 else:
                     cur_c = (d + 1) ** 2
-                    
 
                 nc = cur_c + cost
 
                 if visited[nx][ny] > nc:
                     visited[nx][ny] = nc
-                    heappush(hq, (nx, ny, nc))
+                    heappush(hq, (nc, nx, ny))
 
     if visited[mx][my] != INF:
         print(visited[mx][my])
     else:
         print("NO")
+
