@@ -26,15 +26,15 @@ def dijkstra(A, B, C):
     result = INF
     while q:
         max_v, node, w = heapq.heappop(q)
-        if w > C:
+        if w > C: # 비용이 초과되면 정지, 
             continue
-        for wei, next_node in graph[node]:
-            cost = w + wei
-            if cost > C or visit[node][next_node]:  # 이동경로가 전 단계를 밟아왔을때,
+        for wei, next_node in graph[node]: 
+            cost = w + wei 
+            if cost > C or visit[node][next_node]: #비용 합이 초과되거나, 같은경로를 통해서 왔을때, 최소힙으로 오기에 최대값중 작은 값이 먼저체크됨,
                 continue
-            elif next_node == B:
+            elif next_node == B:  # 도착지에 왔다면, 최대값 비교, 
                 result = min(result, max(max_v, wei))
-            visit[node][next_node] = True
+            visit[node][next_node] = True # 전경로를 통해 온 곳은 방문체크
             heapq.heappush(q, (max(max_v, wei), next_node, cost))
     return result
 
@@ -45,3 +45,5 @@ if dijk == INF:
     print(-1)
 else:
     print(dijk)
+
+# 전단계 
