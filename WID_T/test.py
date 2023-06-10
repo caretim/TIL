@@ -1,16 +1,30 @@
-n = int(input())
+n,m= map(int,input().split())
+one=[]
+six=[]
 
-# S = A[0] × B[0] + ... + A[N-1] × B[N-1]
+for __ in range(m):
+    s,o =map(int,input().split())
+    six.append(s)
+    one.append(o)
 
-# S를 만들기 위한 최솟값, 각 숫자의 최소수,
-A1 = list(map(int, input().split()))
-A2 = list(map(int, input().split()))
+min_s= min(six)
+min_o = min(one)
 
-A1 = sorted(A1, reverse=True)
-A2.sort()
+price=0
+
+if min_s > min_o*6:
+    min_s = min_o*6
+
+while n>5:
+    n-=6
+    price+=min_s
+
+if n != 0:
+    if n*min_o<=min_s:
+        price+=n*min_o
+    else:
+        price+=min_s
+
+print(price)
 
 
-r = 0
-for i in range(n):
-    r += A1[i] * A2[i]
-print(r)
