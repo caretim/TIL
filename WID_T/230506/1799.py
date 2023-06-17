@@ -36,7 +36,7 @@ dx, dy = [1, -1, 1, -1], [1, 1, -1, -1]
 visited = [False] * (n**2)
 ans = [0, 0]
 
-# 짝수는 0, 홀수는 1
+
 dfs(0, 0, 0)
 dfs(1, 1, 0)
 print(sum(ans))
