@@ -1,6 +1,8 @@
 m, s = map(int, input().split(':'))
 
 
+
+
 cnt = 1
 cnt += (m//10 + m%10)
 if s < 30:

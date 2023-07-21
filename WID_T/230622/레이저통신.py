@@ -24,8 +24,9 @@ for y in range(h):
         if graph[y][x]=='c':
             c_list.append((y,x))
 
-
+#방문지 체크, 0,1로 해주고, 거울 횟수는 직접가져가기
 def dijkstra(sy,sx,ey,ex):
+    check[sy][sx]=0
     q=[]
     
 

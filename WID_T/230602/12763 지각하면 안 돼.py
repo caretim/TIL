@@ -1,3 +1,4 @@
+
 import sys
 import heapq
 
@@ -14,29 +15,29 @@ graph = [[] for __ in range(N + 1)]
 
 for __ in range(L):
     u, v, t, m = map(int, input().split())
-    graph[u].append((m, t, v))
-    graph[v].append((m, t, u))
+    graph[u].append((v,t,m))
+    graph[v].append((u,t,m))
 
 
 def dijkstra(start, end):
-    arr = [[INF] * (N + 10001) for __ in range(N + 1)]
-    arr[start] = 0
+    arr = [[INF for __ in range(10001)] for __ in range(N + 1)]
+    arr[1][0] = 0
     q = []
     result = -1
-    heapq.heappush(q, (0, 0, start))
+    heapq.heappush(q, (0, 0, start)) # 시간 ,비용 , 노드 
     while q:
-        m, t, node = heapq.heappop(q)
-        t = -t
-        if arr[node] < m or t > T:
+        t, m, node = heapq.heappop(q)
+        if arr[node][m] < t:
             continue
-        for mm, tt, next_node in graph[node]:
+        for  next_node ,tt, mm, in graph[node]:
             cost = m + mm
             time = t + tt
-            if arr[next_node] > cost and time <= T:
-                arr[next_node][mm] = tt
-                heapq.heappush(q, (cost, -time, next_node))
+            if time <= T and cost <= M:
+                if arr[next_node][mm] > time :
+                    arr[next_node][mm] = time
+                    heapq.heappush(q, (time, cost, next_node))
     for i in range(M + 1):
-        if arr[N][i] <= T:
+        if arr[end][i] <= T:
             result = i
             break
     return result

@@ -10,5 +10,4 @@ for i in range(0,n+1):
         else:
             graph[i][j]= graph[i-1][j-1]+graph[i-1][j]
 
-print(graph)
 print(graph[n-1][m-1])

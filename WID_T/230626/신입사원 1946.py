@@ -13,7 +13,7 @@ def solution(scores):
 
 
 
-for _ in range(int(input())):
+for __ in range(int(input())):
     n = int(input())
     scores = [list(map(int, input().split())) for _ in range(n)]
     print(solution(scores))
