@@ -30,11 +30,11 @@ def dijkstra(A, B, C):
             continue
         for wei, next_node in graph[node]: 
             cost = w + wei 
-            if cost > C or visit[node][next_node]: #비용 합이 초과되거나, 같은경로를 통해서 왔을때, 최소힙으로 오기에 최대값중 작은 값이 먼저체크됨,
+            if cost > C or visit[node][next_node]<cost: #비용 합이 초과되거나, 같은경로를 통해서 왔을때, 최소힙으로 오기에 최대값중 작은 값이 먼저체크됨,
                 continue
             elif next_node == B:  # 도착지에 왔다면, 최대값 비교, 
                 result = min(result, max(max_v, wei))
-            visit[node][next_node] = True # 전경로를 통해 온 곳은 방문체크
+            visit[node][next_node] = cost # 전경로를 통해 온 곳은 방문체크
             heapq.heappush(q, (max(max_v, wei), next_node, cost))
     return result
 

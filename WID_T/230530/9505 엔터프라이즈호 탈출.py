@@ -32,13 +32,9 @@ def dijkstra(sx,sy):
     
 for tc in range(int(input())):
 
-
     k,w,h = map(int,input().split())
 
     battle_class = {}
-
-
-
 
     for __ in range(k):
         cla,cost = input().split()
