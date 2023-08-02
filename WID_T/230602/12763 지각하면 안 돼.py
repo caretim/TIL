@@ -33,8 +33,8 @@ def dijkstra(start, end):
             cost = m + mm
             time = t + tt
             if time <= T and cost <= M:
-                if arr[next_node][mm] > time :
-                    arr[next_node][mm] = time
+                if arr[next_node][cost] > time :
+                    arr[next_node][cost] = time
                     heapq.heappush(q, (time, cost, next_node))
     for i in range(M + 1):
         if arr[end][i] <= T:
