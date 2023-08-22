@@ -5,13 +5,7 @@ INF = sys.maxsize
 
 input = sys.stdin.readline
 
-
-
-
 n,m= map(int,input().split())
-
-
-
 
 graph = [[] for __ in range(n+1)]
 
@@ -25,22 +19,8 @@ s,h= map(int,input().split())
 
 house_list = list(map(int,input().split()))
 store_list = list(map(int,input().split()))
-# store ={}
-# for i in range(n+1):
-#     store[i]=0
-
-# for i in store_list:
-#     store[i]=1
-    
-# house = {}
-# for i in range(n+1):
-#     house[i]=0
-
-# for i in house_list:
-#     house[i]=1
 
 
-min_dist= INF
 
 def dijkstra(store_list):
     arr=[INF]*(n+1)
@@ -52,8 +32,6 @@ def dijkstra(store_list):
         w,node=heapq.heappop(q)
         if arr[node]<w:
             continue
-        # if store[node]==1:
-        #     return w
         for wei,next_node in graph[node]:
             cost = w+wei
             if arr[next_node]>cost:
@@ -63,7 +41,10 @@ def dijkstra(store_list):
 
 
 r = dijkstra(store_list)
+
 result = []
+
+min_dist= INF
 
 for i in house_list:
     if r[i]<min_dist:
