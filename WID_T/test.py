@@ -1,4 +1,3 @@
-s=  "9,8"
 def isPalindrome(s):
     word =[]
     for i in s:
