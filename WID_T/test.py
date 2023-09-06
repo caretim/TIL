@@ -1,14 +1,20 @@
-class Solution:
-    def wordPattern(pattern: str, s: str) -> bool:
-        arr = s.split()
-        if len(arr) != len(pattern):
-            return False
-        
-        for i in range(len(arr)):
-            print(pattern.find(pattern[i]), arr.index(arr[i]))
-            if pattern.index(pattern[i]) != arr.index(arr[i]):
-                return False
-        return True
+
+import sys
+class Solution(object):
+    def __init__(self):
+        self.prev = sys.maxsize
+        self.current_min = sys.maxsize
+        def getMinimumDifference(self, root):
+            def findMin(node):
+                if node != None:
+                    return 
+                findMin(node.left)
+                self.result = min(abs(node.val-self.prev),self.result)
+                self.prev = node
+
+                findMin(node.right)
 
 
-print(Solution.wordPattern("aba","cat dog dog "))
+            findMin(root)
+            return self.result
+
