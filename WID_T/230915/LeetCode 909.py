@@ -23,7 +23,6 @@ while q:
     move,cur = heapq.heappop(q)
     for i in (1,2,3,4,5,6):
         next = cur+i
-        print(next)
         if line[next]!= -1:
             next = line[next]
         if next <(n**2) and visit[next]>move+1:

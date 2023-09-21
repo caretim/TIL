@@ -16,4 +16,4 @@ for i in range(len(sort_list)):
     result[strs_list.index(''.join(sort_list[i]))].append(strs[i])
 
 
-print(result)
+

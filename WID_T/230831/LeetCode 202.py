@@ -13,7 +13,6 @@ while k not in num_set:
     if num == 1:
         result = True
         break
-    print(num)
     k = num
     n= num
 

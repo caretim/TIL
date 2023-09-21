@@ -6,14 +6,13 @@ class Node:
 class Trie(object):
     def __init__(self):
         self.root = Node()
-        self.root.endof =False
         
 
     def insert(self, word): # 노드 삽입, 딕셔너리로 존재하지않는다면 생성, 존재한다면 추가 
         node = self.root
         for i in word:
             if i not in node.children:
-                node.children[i] = node[i]
+                node.children[i] = Node(i)
             node= node.children[i] 
         node.endof =1   # 완성문자열
             

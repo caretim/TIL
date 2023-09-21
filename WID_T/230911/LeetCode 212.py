@@ -18,22 +18,24 @@ class Trie(object):
 
 class Solution(object):
     def findWords(self, board, words):
-        self.result = []
+        result = []
         trie = Trie() # trieTree 생성
         node = trie.root
         for i in words: # 트라이트리에 단어 삽입
             trie.insert(i)
         for y in range(len(board)):
             for x in range(len(board[0])):
-                self.search(node,board,y,x,"")
-    def search(self,node,board,y,x,temp):
+                self.search(node,board,y,x,"",result)
+
+
+    def search(self,node,board,y,x,temp,result):
         dy,dx = [0,0,1,-1],[1,-1,0,0]
         if node.endof: # 현재 완성된 단어라면 tmep result에 추가 
-            self.result.append(temp)
-            node.endof = 0 #방문체크 
+            result.append(temp)
+            node.endof = 0 #완성문자 방문체크
             if not node: 
                 return
-        if 0>y>=len(board) or 0>x>=len(board[0]): #범위체크
+        if 0>y or y>=len(board) or 0>x or x>=len(board[0]): #범위체크
             return
         char = board[y][x]
         if char not in  node.children:
@@ -41,4 +43,5 @@ class Solution(object):
         node = node.children[char]
         for i in range(4):
             ny,nx = y+dy[i],x+dx[i]
-            self.search(node,board,ny,nx,temp+char)
+            self.search(node,board,ny,nx,temp+char,result)
+            board[y][x]='*'
