@@ -1,20 +1,29 @@
-tokens =["2","1","+","3","*"]
-stack=[]
-oper = ['+','-','*','/']
-for i in tokens:
-    if i not in oper:
-        stack.append(int(i))
-    else:
-        num1 ,num2 = stack.pop(),stack.pop()
-        if i == '-':
-            stack.append(num1-num2)
-        elif i == '+':
-            stack.append(num1+num2)
-        elif i == '/':
-            stack.append(num1/num2)
-        elif i == '*':
-            print(num1,num2)
-            stack.append(num1*num2)
-        
-print(stack)
-    
+import sys, heapq
+
+input = sys.stdin.readline
+t = int(input())
+
+for i in range(t):
+	
+
+	n, m = map(int, input().split())
+
+
+	l_list = list(enumerate((map(int,input())))) 
+
+	heap = [] 
+	for j in range(n):
+		heapq.heappush(heap, -l_list[j][1]) 
+	cnt = 0
+	while cnt <= n:
+		if l_list[0][1] == -heap[0] and l_list[0][0] == m: 
+			cnt += 1 
+			break
+		elif l_list[0][1] == -heap[0]: 
+			del l_list[0] 
+			heapq.heappop(heap)
+			cnt += 1
+		else: 
+			l_list.append(l_list[0]) 
+			del l_list[0]
+	print(cnt)
