@@ -1,8 +1,6 @@
 import sys
 import heapq
 
-input = sys.stdin.readline
-
 INF = sys.maxsize
 
 n = int(input())  # 땅의 개수
@@ -44,8 +42,3 @@ mn = max(arr[1:])  # 시간 최소로 하려면?  딕셔너리로 값지정하�
 for i in range(1, len(arr)):  # 포문으로 동일값 첫번쨰 뽑기?
     if arr[i] == mn:
         print(i)
-
-
-# a,b,c에서 출발해서  abc노드를 제외한 노드에 도착했을때 최소 값을 각각 넣어주기,
-# 3,5,6 동시 출발, -> 제일 먼 곳은 각자의 집에서 출발했을때 최단거리중 가장 큰 곳,
-#
