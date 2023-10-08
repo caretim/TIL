@@ -63,7 +63,7 @@ p1 = dijkstra(1,check_node[0])+dijkstra(check_node[0],check_node[1])+dijkstra(ch
 p2 = dijkstra(1,check_node[1])+dijkstra(check_node[1],check_node[0])+dijkstra(check_node[0],n)
 
 
-if p1 < INF : # 바운더리 테케 확인 설정 
+if p1 < INF :
     r.append(p1)
 if p2 < INF:
     r.append(p2)
