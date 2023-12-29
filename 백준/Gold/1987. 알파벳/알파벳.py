@@ -10,6 +10,9 @@ r, c = map(int, input().split())
 
 
 matrix = [list(input().rstrip()) for __ in range(r)]
+check = [[""] * c for __ in range(r)]
+
+
 
 
 def bfs(y, x):
@@ -24,7 +27,10 @@ def bfs(y, x):
         for i in range(4):
             ny, nx = y + dy[i], x + dx[i]
             if 0 <= ny < r and 0 <= nx < c and matrix[ny][nx] not in checker:
-                q.add((ny, nx, checker + matrix[ny][nx]))
+                temp = checker + matrix[ny][nx]
+                if check[ny][nx] != temp:
+                    check[ny][nx] = temp
+                    q.add((ny, nx, checker + matrix[ny][nx]))
     return result
 
 
