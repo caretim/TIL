@@ -55,7 +55,6 @@ while True:
                     elif matrix[nz][ny][nx] == "E":
                         result = f"Escaped in {cnt} minute(s)."
                         flag = 1
-                        print(1)
 
         # for i in visit:
         #     for v in i:

@@ -1,23 +1,24 @@
-import sys
-
-input = sys.stdin.readline
-
-
-matrix = [list(map(int, input().split())) for __ in range(9)]
+n, m = map(int, input().split())
+arr = list(map(int, input().split())) + [0 for _ in range(100)]
 
 
-my, mx = 0, 0
+start = 0
+end = 0
+partSum = arr[0]
+length = 1
 
-max = -1
+result = 999999
 
+while end <= n:
+    if partSum < m:
+        end += 1
+        length += 1
+        partSum += arr[end]
+    else:
+        result = min(result, length)
+        start += 1
+        partSum -= arr[start - 1]
+        length -= 1
+    print(arr)
 
-for y in range(9):
-    for x in range(9):
-        if matrix[y][x] > max:
-            max = matrix[y][x]
-            my = y
-            mx = x
-
-
-print(max)
-print(my + 1, mx + 1)
+print(result)

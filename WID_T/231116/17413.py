@@ -4,8 +4,8 @@ import sys
 input = sys.stdin.readline
 
 words = input()
-addChar = []
-result = []
+addChar = ""
+result = ""
 flag = 0
 while words:
     char = words.pop()
@@ -15,5 +15,7 @@ while words:
     elif char == "<":
         flag = 0
         addChar.append(char)
-        result.append(addChar[::-1])
+        result + addChar[::-1]
         addChar = []
+    else:
+        result.append()

@@ -1,20 +1,22 @@
 import sys
-from collections import defaultdict
 
 input = sys.stdin.readline
 
-dict = defaultdict(int)
-n = 0
-while True:
-    tree = input().rstrip()
-    if not tree:
+
+total = 0
+dic = dict()
+while 1:
+    word = sys.stdin.readline().rstrip()
+    if word == "":
         break
-    dict[tree] += 1
-    n += 1
+    total += 1
+    if word in dic:  # 전에 이미 나왔으면
+        dic[word] += 1
+    else:
+        dic[word] = 1
+sdic = dict(sorted(dic.items()))
+for i in sdic:
+    a = sdic[i]
+    per = a / total * 100
 
-result = list(dict.keys())
-
-result.sort()
-
-for t in result:
-    print("%s %.4f" % (t, dict[t] * 100 / n))  # 소수점4자리까지.
+    print("%s %.4f" % (i, per))

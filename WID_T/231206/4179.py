@@ -55,12 +55,8 @@ def bfs(fire, jy, jx):
                     visited[ny][nx] = cnt
                     q.appendleft((ny, nx, cnt))
             else:
-                print(matrix)
-                print(visited)
                 print(cnt)
                 exit()
-    print(matrix)
-    print(visited)
     return print("IMPOSSIBLE")
 
 

@@ -27,7 +27,6 @@ def bfs(start):
             if visit[next] == 0:
                 visit[next] = visit[now] + 1
                 q.append(next)
-    print(visit)
     return sum(visit) - 1
 
 
