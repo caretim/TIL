@@ -9,6 +9,8 @@ n = int(input())
 
 cards = list(map(int, input().split()))
 
+card = cards
+
 for i in range(len(cards)):
     dict[i] = i % 3
 
@@ -37,6 +39,6 @@ while flag:
         break
     cards = shuffle(cards)
     cnt += 1
-    if cnt > 1000000:
+    if cards == card:  # 제한말고 모든 사이클이 돌고나면 최초의 순서로 돌아오는걸 조건으로 -1 출력가능
         print(-1)
         break
