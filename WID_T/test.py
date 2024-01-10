@@ -1,1 +1,1 @@
-print(b)
+isinstance(1, int)
