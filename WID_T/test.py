@@ -1,4 +1,5 @@
-dict = {'a':[1,2]}
+n =5  
 
+visited= [[0 for __ in range(n)] for __ in range(n)] 
 
-print(dict['a'][1])
+print(visited)
