@@ -3,9 +3,6 @@ import sys
 input = sys.stdin.readline
 
 
-
-
-
 def find(node):
     if root[node] ==node:
         return node
@@ -30,16 +27,19 @@ for __ in range(m):
     a,b= map(int,input().split())
     union(a,b)
 
+
+for i in range(n):
+    find(i)
+
+
 classtime = list(map(int,input().split()))
 
-now= root[classtime[0]]
+now= classtime[0]
 
 cnt = 0
 
 for i in range(1,len(classtime)):
-    if root[classtime[i]] != root[now]:
-        print(root[classtime[i]], root[now])
+    if find(now) != find(classtime[i]):
         cnt+=1
-        now = root[classtime[i]]
-
+        now = classtime[i]
 print(cnt)
