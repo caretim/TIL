@@ -12,11 +12,12 @@ def find(node):
         return node
 
 def union(x,y):
-
     a = find(x)
     b = find(y)
     if a!=b:
         root[b]=root[a]
+
+    
 t = int(input())
 for i in range(t):
     print(f'Scenario {i+1}:')
