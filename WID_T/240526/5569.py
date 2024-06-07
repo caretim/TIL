@@ -1,6 +1,8 @@
 import sys
 sys.setrecursionlimit(10 ** 5)
 
+
+
 def tracking(now, day):
     if day == n:
         for i in range(1, n + 1):
@@ -15,7 +17,9 @@ def tracking(now, day):
     return
 
 n = int(input())
+
 cakes = dict()
+
 check = [[False] * (n + 1) for _ in range(10)]
 
 for i in range(1, n + 1):
