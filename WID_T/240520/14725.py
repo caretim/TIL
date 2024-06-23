@@ -34,6 +34,7 @@ n= int(input())
 
 foods = []
 
+#root 위치 따로 저장 후 이동 값 , 
 for __ in range(n):
     Robot_root = list(input().split())
     for i in range(1,int(Robot_root[0])):

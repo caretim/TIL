@@ -12,7 +12,7 @@ color_values = [list(map(int,input().split())) for __ in range(n)]
 
 # 시작점과 끝점 값 비교해서 시작값 끝값 절대값으로 결정
 # 중간노드 선택 분기 나눠서 가기?
-last_n = {1:[0,2], 2:[1,0],0:[1,2]}
+# last_n = {1:[0,2], 2:[1,0],0:[1,2]}
 
 result=INF
 for i in range(3):
