@@ -26,18 +26,26 @@ input=sys.stdin.readline
 # print(root)
 # print(foods)
 
-
 import sys
-input=sys.stdin.readline
+input = sys.stdin.readline
 
-n= int(input())
+N = int(input())
+dic = {}
+for _ in range(N):
+    foodList = input().split()[1:]
 
-foods = []
+    temp = dic
+    for food in foodList:
+        if food not in temp:
+            temp[food] = {}
+        
+        temp = temp[food]
 
-#root 위치 따로 저장 후 이동 값 , 
-for __ in range(n):
-    Robot_root = list(input().split())
-    for i in range(1,int(Robot_root[0])):
-        now_Food =str(i)+Robot_root[i] # depth값과 문자열 합치기
 
+def printDict(d, s):
+    for key, value in sorted(d.items()):
+        print(s + key)
+        printDict(value, s + "--")
+
+printDict(dic, "")
 
