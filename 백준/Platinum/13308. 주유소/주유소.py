@@ -5,7 +5,6 @@ input = sys.stdin.readline
 INF = sys.maxsize
 
 
-
 n,m =map(int,input().split())
 
 
@@ -23,7 +22,7 @@ oilCost =list(map(int,input().split()))
 # 더 적은 비용으로 노드에 도착할 경우 and  현재노드 가격보다 낮은 가격으로 이동중일 경우
 
 graph= [[] for __ in range(n+1)]
-visited = [[INF for __ in range(2501)] for __ in range(n+1)]
+visited = [[INF for __ in range(max(oilCost)+1)] for __ in range(n+1)]
 
 for __ in range(m):
     u,v,w = map(int,input().split())
@@ -37,11 +36,16 @@ def dijkstra(start):
     heapq.heappush(heap,(0,start,oilCost[start-1])) # 비용, 노드 , 사용 기름 가격
     while heap:
         cost,node,oil = heapq.heappop(heap)
+        if node == n:
+            print(cost)
+            break
         oil = min(oil,oilCost[node-1])
         if visited[node][oil]<cost:
             continue
         for dist,nextNode in graph[node]:
             nextCost = cost + dist*oil
+            # if min(visited[nextNode][0:oil])<nextCost:
+            #     continue
             if visited[nextNode][oil]>nextCost:
                 visited[nextNode][oil]=nextCost
                 heapq.heappush(heap,(nextCost,nextNode,oil))
@@ -49,7 +53,7 @@ def dijkstra(start):
         # 사용 오일이 더 낮은 경우, 
 
 dijkstra(1)
-print(min(visited[n]))
+# print(min(visited[n]))
             
 
     
