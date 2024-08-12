@@ -5,6 +5,7 @@ import heapq
 input = sys.stdin.readline
 
 
+
 n= int(input())
 
 
@@ -40,4 +41,3 @@ for i in range(n):
 # 2개의 원소가 중앙값이라면 순서가 거꾸로 나와있음, 그냥 삽입된 순서 나누기//2하는게 제일 빠름,
 
 # 위의 방법으로 시행한다면 단순히 pop연산속도가 2배 빨라짐,
-
