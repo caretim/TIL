@@ -16,7 +16,6 @@ result = []
 #3.result에 갱신되는 값은, 라면의 개수가 앞으로 오도록 한다
 #4. result의 인자 개수는 day함수와 동일해야한다 - > day가 증가될 떄 , (0,day) 튜플 삽입,
 
-PB.sort()
 day = 0
 cnt_min = 1e9
 while PB:
