@@ -1,4 +1,6 @@
 import sys,heapq
+
+input = sys.stdin.readline
 n= int(input())
 
 PB=[]
@@ -17,7 +19,6 @@ result = []
 #4. result의 인자 개수는 day함수와 동일해야한다 - > day가 증가될 떄 , (0,day) 튜플 삽입,
 
 day = 0
-cnt_min = 1e9
 while PB:
     t,m = heapq.heappop(PB)
     #데드라인 시간이 변경될 경우  result에 들어갈 공간 추가 
