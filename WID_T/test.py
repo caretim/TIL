@@ -1,25 +1,28 @@
-
-
 import sys
+from itertools import combinations
 
-N = int(sys.stdin.readline().replace("\n", ""))
+input = sys.stdin.readline
 
-counts = [0 for _ in range(10)]
+n= int(input())
 
-weight = 1
-for step in range(len(str(N))):
-    replaced = int(str(N // 10) + "9")
-    remaining = replaced - N
-    for i in range(len(counts)):
-        counts[i] += (N // 10 + 1) * weight
-    for i in range(10-remaining, 10):
-        counts[i] -= weight
-    for number in list(str(N)[:-1]):
-        number = int(number)
-        counts[number] -= remaining * weight
+taste = []
 
-    counts[0] -= weight
+for __ in range(n):
+    taste.append(list(map(int,input().split())))
 
-    N //= 10
-    weight *= 10
+com = []
+for i in range(1, n+1):
+    com.append(combinations(taste, i))
 
+result = sys.maxsize
+for line in com:
+    for each in line:
+        sour = 1
+        bitter = 0
+        for e in each:
+            sour *= e[0]
+            bitter += e[1]
+
+        result = min(result, abs(sour - bitter))
+
+print(result)
