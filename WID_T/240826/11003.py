@@ -6,8 +6,6 @@ input = sys.stdin.readline
 
 n,l = map(int,input().split())
 
-
-
 nums =  list(map(int,input().split()))
 
 #값을 뽑는건 최소힙을 통해서 제일 낮은 값 빼기
@@ -16,8 +14,6 @@ nums =  list(map(int,input().split()))
 # 내부의 튜플 값을 기준으로 최소힙을 x  -> heapq.push로 저장하면 값이 맨 앞의 값을 기준으로 
 heap = []
 lCnt= -l
-minResult = sys.maxsize
-
 result = []
 for i in range(n):
     lCnt+=1
