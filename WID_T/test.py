@@ -22,3 +22,4 @@ for step in range(len(str(N))):
     N //= 10
     weight *= 10
 
+print(counts)
