@@ -18,6 +18,29 @@ gd = list(map(int,input().split()))
 
 
 graph =[[] for __ in range(n)]
-
+print(graph)
 for __ in range(m):
-    u,v,
+    u,v,w =map(int,input().split())
+    graph[u].append((w,u))
+    graph[v].append((w,v))
+
+
+visited =[INF]*(n)
+
+
+# def dijkstra(start,end):
+#     visited[start]= 0
+#     heap = []
+#     heapq.heappush((0,start))
+#     while heap:
+#         dist,now = heapq.heappop(heap)
+#         if now == B: # 마지막 도착 종료조건 
+#             print(now)
+#             break
+#         if visited[now]<dist:
+#             continue
+#         for nextDist ,nextNode in graph[now]:
+#             distant = dist+nextDist
+#             if visited[nextNode]>distant:
+#                 heapq.heappush(heap,(distant,nextNode))
+
